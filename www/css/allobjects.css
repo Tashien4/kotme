@@ -1,0 +1,31 @@
+html {background-color:#cccccc}
+body {background-color:#eeeeee; font-family:Tahoma,Arial,Helvetica,sans-serif; font-size:9px;	  margin-left:2%; margin-right:1%; border:3px groove darkred; padding:2px 2px 2px 120px}
+.calbutton {
+        background-image:url("/images/calendar-1.jpg");
+}
+#layerStrubutton,#layerAlphabutton,#PrintTabButton,#layerCalVyhbutton {
+  left: 1px;
+  position: absolute;
+  height: 100px;
+  width: 200px;
+  z-index: 1;
+  visibility: visible;
+}
+
+#layerAlphabutton  { top:   1px;  }
+#layerStrubutton   { top:  90px;  }
+#layerCalVyhbutton { top: 170px; }
+#PrintTabButton    { top: 420px; }
+
+#layerCalVyh {
+  left: 100px;
+  font-size: 18pt;
+  position: absolute;
+  height: 100px;
+  width: 200px;
+  top: 150px;
+  z-index: 2;
+  visibility: hidden;
+}
+
+#layerInsEvntbutton {        font-size: 18pt;        position: absolute;        height: 20px;        width: 20px;        left:140px;        top: 250px;        z-index: 1;        visibility: visible;      }#layerMenTabel {        font-size: 18pt;        position: absolute;        height: 100px;        width: 200px;        left: 800px;        top:200px;        z-index: 1;        visibility: hidden;      }#layerMenTabelbutton {        font-size: 18pt;        position: absolute;        height: 100px;        width: 200px;        left: 880px;        top: 200px;        z-index: 1;        visibility: visible;      }/*----------------------------------------------------------*/	                                                                                  table.stru {    font-family:Arial;    font-size:        12px;    font-weight:      bold;    background-color:#FFFFFF;    width: 180px;    padding: 2px 5px 2px 5px;}table1 {    font-family:Arial;    font-size:        12px;    font-weight:      bold;    table-layout:fixed;     border-collapse:collapse;    background-color:#FFFFFF;    width: 300px;    border-top: 1px solid #999;    border-right: 1px solid #666;    border-left: 1px solid #999;    border-bottom: none;    border-radius: 2px;    -moz-border-radius: 2px;    padding: 2px 5px 2px 5px;}h1 {text-align:right; font-size:10px; font-weight:bold}h2 {text-align:left; font-size:9px; font-weight:bold}h3 {text-align:left; font-size:8px; font-weight:bold}.c_day {text-align:left; font-size:18px;color:black; font-weight:bold; text-decoration:none}.c_status {text-align:right; font-size:14px;color:#cccccc; font-weight:bold; text-decoration:none}.c_chas {text-align:left; font-size:10px;color:#FF0000; font-weight:none; text-decoration:none}.c_noch {text-align:left; font-size:9px;color:#00FF00; font-weight:none; text-decoration:none}.buttons {margin-top:10px}a.nav:link      {font-family: <?php echo $right_font_family; ?>; color: #000000}a.nav:visited   {font-family: <?php echo $right_font_family; ?>; color: #000000}a.nav:hover     {font-family: Arial; color: #FF0000}.nav {    font-family: Arial;    color: #000000;    border-top: none;    border-right: none;    border-left: none;    border-bottom: 1px solid #666;}.navSpacer {    width:            5px;    height:           16px;}.navNormal, .navDrop, .navActive {    font-family:      Arial;    font-size:        12px;    font-weight:      bold;    border-top: 1px solid #999;    border-right: 1px solid #666;    border-left: 1px solid #999;    border-bottom: none;    border-radius: 2px;    -moz-border-radius: 2px;    padding: 2px 5px 2px 5px;}.navNormal {    color:            #000000;    background-color: #E5E5FF;}.navActive{    font-family:      Arial;    font-size:        12px;    font-weight:      bold;    color:            #000000;    background-color: #CCCCFF;}.navDrop{    color: #000000;    background-color: #E5E5E5;}.navNormal a:active, .navNormal a:visited, .navNormal a:link {    color: #0000FF;}.navActive a:link, .navActive a:active, .navActive a:visited{    color: #0000FF;}.navDrop a:link, .navDrop a:active, .navDrop a:visited{    color: #FF0000;}

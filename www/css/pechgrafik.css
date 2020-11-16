@@ -1,0 +1,66 @@
+html {background-color:#ffffff};
+body {background-color:#ffffff; font-family:Tahoma,Arial,Helvetica,sans-serif; font-size:11px;}
+h1 {text-align:center; font-size:1.5em; font-weight:bold; line-height:50%;}
+h2 {text-align:center; font-size:1.2em; font-weight:bold; line-height:70%;}
+.nextpage{   page-break-before:always;   color:green; }
+.tabfull { width: 27cm; }/*.noborder {border-style:none;}*/
+table,td,th {font-family: Tahoma;table-layout:fixed; background-color:#FFFFFF;
+/*line-height:90%;*/
+border-top: 1px solid #666;
+border-bottom: 1px solid #666;
+border-left: 1px solid #666;
+border-right: 1px solid #666;
+valign:middle;
+font-size:11.0pt;
+border-collapse:collapse;/* заменяет двойную рамку одинарной*/
+}
+th {align:center;valign:middle;}
+table.sapkatab,td.leftsap,,th.leftsap {border-style:none; table-layout:auto; text-align:left;} 
+td.leftsap {font-size:9.0pt;width: 11cm;    line-height:100%;}
+.podpis {font-family: Arial;font-size:12.0pt;text-align:left;width: 17cm;   line-height:100%;}
+.fam {width: 3cm;}
+.dney {width: 1cm;}
+.dolg {font-size:10.0pt;}
+.workp {width: 2.5cm;}
+.befor {width: 4.5cm;}
+.begin {width: 2.5cm;}
+.ST22 {  text-align:center; border-style:solid;  font-weight:      bold;  font-size:9.0pt;  height:1cm;} 
+.first {color:blue;font-weight:bold;}
+#it{
+  font-weight:bold;
+  color:red;
+  width:100pt;}
+#it1{
+  font-weight:bold;
+  color:red;
+  width:20pt;}
+#it2{
+  font-weight:bold;
+  color:red;
+  width:15pt;
+}
+#neyav{
+  font-weight:bold;
+  color:red;
+  width:15pt;
+}
+#nepri{
+  font-weight:bold;
+  color:red;
+  width:30pt;
+}
+#it3{
+  font-weight:bold;
+  color:red;
+  width:10pt;
+}
+#tdfio{  width: 70pt;}
+#tab_tab {   border-right: 1px solid #666;
+border-top: 1px solid #666;
+border-bottom: 1px solid #666;
+border-left: 1px solid #666;
+    margin-bottom:.0001pt;
+}
+/* Page Definitions */
+@page Print1 {size: landscape; margin:1.5cm 1.0cm 1.0cm 1.0cm;}
+#toPrinter {page:Print1;}
