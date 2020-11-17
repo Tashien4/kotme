@@ -336,16 +336,7 @@ print '=================='.$tab.'==================<br/>';
 //-----------------------------------------------------------
 	public function actionNewregistration() {
 		$model=new Users;
-		Yii::app()->params['operations']=array(
-//				array('label'=>'Регистрация нового', 'url'=>array('site/newregistration')),
-                        );
-		Yii::app()->params['workmenu']=array_merge(
-			array(),
-//			Yii::app()->params['based_menu']['admin'],
-			Yii::app()->params['based_menu']['loginadmin']
-		);
-	        $this->layout='//layouts/column2plusmenu';
-
+	
 		// if it is ajax validation request
 		if(isset($_POST['ajax']) && $_POST['ajax']==='users')
 		{
@@ -359,14 +350,12 @@ print '=================='.$tab.'==================<br/>';
 			$model->attributes=$_POST['Users'];
 			if($model->validate()) {
 				$model->password = sha1(md5($model->login).md5($model->password));
-				$model->lastlogin=0;
+				$model->lastlogin=date("Y-m-d H:i:s");
 				$model->save();
 			} 
 			// validate user input and redirect to the previous page if valid
 			if($model->validate()) {// && $model->login()) {
-				if ((Yii::app()->user->returnUrl)&&(Yii::app()->user->returnUrl!=='/index.php') ){
-					$this->redirect(Yii::app()->user->returnUrl);
-				} else $this->redirect('/index.php/site/userslist'); //Yii::app()->user->returnUrl);
+				$this->redirect('/kotme/www/index.php/site/login?log='.$model->login);
 			}
 		}
 		// display the login form

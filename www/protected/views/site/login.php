@@ -64,15 +64,18 @@ $form=$this->beginWidget('CActiveForm', array(
 	<div class="inside">
 		<br><p>Войдите для того, чтобы начались приключения</p>
 		<div style="color: yellow;text-shadow: 2px 2px #a97311;">Нет аккаутна?
-		<a onclick="visible();">Зарегистрируйся</a></div><br>
-		<?php echo $form->textField($model,'login',array('placeholder'=>'Логин')); ?><br><br>
+		<a href='<?php echo Yii::app()->baseUrl.'/index.php/site/newregistration'?>'>Зарегистрируйся</a></div><br>
+		<?php echo $form->textField($model,'login',array('placeholder'=>'Логин','value'=>((isset($_GET['log'])?$_GET['log']:'')))); ?><br><br>
 		<?php echo $form->passwordField($model,'password',array('placeholder'=>'Пароль')); ?><br><br>
 		<br><?php echo $form->error($model,'password'); ?><br>
 			<?php echo CHtml::submitButton('Войти',array('class'=>'btn','name'=>'log')); ?>
 			<br><br>
 </div>
 </div>
-
+<div style="position: fixed;
+    left: 0px;
+    width: 30%;
+    top: 60%;"> <img src='/kotme/www/images/for_game/crab_idle.gif' width=80%/></div>
 <?php $this->endWidget(); ?>
 </div><!-- form -->
 

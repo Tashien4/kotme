@@ -16,7 +16,7 @@ background-image: url('/kotme/www/images/for_game/fon_2.jpg');}
 .text{text-align:center;width:60%;
  
 	position: fixed; /* or absolute */
-    top: 60%;
+    top: 50%;
     left: 50%;   
     height:300px;
       -webkit-transform: translate(-50%, -50%);

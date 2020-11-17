@@ -1,3 +1,50 @@
+<style>body {font-size:20px;}
+input:focus::-webkit-input-placeholder { color:transparent; }
+input:focus:-moz-placeholder { color:transparent; } /* FF 4-18 */
+input:focus::-moz-placeholder { color:transparent; } /* FF 19+ */
+input:focus:-ms-input-placeholder { color:transparent; } /* IE 10+ */
+.panel{
+	width:35%;
+	background-size: cover;
+    position: fixed;
+    top: 25%;
+	left: 30%;
+	background-image: url('/kotme/www/images/for_game/panel.png');
+}
+td{text-align:center;}
+.inside{padding: 5% 10% 0 10%;font-size:20px;text-align: center;}
+p{    color: yellow;
+    font-size: 30px;
+	text-shadow: 2px 2px #a97311;
+}
+input{font-size:30px;padding: 2px;
+    margin: 0px !important;}
+.row_buttons{text-align: center;}
+.btn:hover {
+    background: #fcff35;
+    box-shadow: 0 15px 20px rgb(229 122 46 / 40%);
+    color: black;
+    transform: translateY(-7px);
+}
+.btn{ 
+	outline: none;
+    display: inline-block;
+    width: 200px;
+    font-size: 15px;
+    height: 45px;
+    border-radius: 45px;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: bold;
+    color: #000000;
+    background: #FFEB3B;
+    box-shadow: 0 8px 15px rgba(0,0,0,.1);
+    transition: .3s;}
+a{    color: white !important;
+    margin: 5px;
+	text-align: left;
+	cursor:pointer;}</style>
+
 <div class="form">
  
 <?php $form=$this->beginWidget('CActiveForm', array(
@@ -5,76 +52,20 @@
 	'enableAjaxValidation'=>false,
 )); ?>
 
-<?php if (true) { //$_SERVER['PHP_AUTH_USER']=='aqtgwa') { ?> 
-	<p class="note">Fields with <span class="required">*</span> are required.</p>
- 
-	<?php echo $form->errorSummary($model); ?>
- 
-	<div class="row">
-		<?php echo $form->labelEx($model,'usernamerus'); ?>
-		<?php echo $form->textField($model,'usernamerus'); ?>
-		<?php echo $form->error($model,'usernamerus'); ?>
-	</div>
-	<div class="row">
-		<?php echo $form->labelEx($model,'username'); ?>
-		<?php echo $form->textField($model,'username'); ?>
-		<?php echo $form->error($model,'username'); ?>
-	</div>
-	<div class="row">
-		<?php //echo $form->labelEx($model,'dolg'); ?>
-		<?php //echo $form->textField($model,'dolg'); ?>
-		<?php //echo $form->error($model,'dolg'); ?>
-	</div>
+	<div class="panel">
+	<div class="inside">
+	<br><p>Регистрация</p>
+		<?php echo $form->textField($model,'login',array('placeholder'=>'Логин')); ?>
+		<?php echo $form->textField($model,'name',array('placeholder'=>'Имя')); ?>
+		<?php echo $form->textField($model,'email',array('placeholder'=>'Email')); ?>
+		<?php echo $form->error($model,'email'); ?>
+		<?php echo $form->passwordField($model,'password',array('placeholder'=>'Пароль')); ?>
+		<br><br>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'password'); ?>
-		<?php echo $form->passwordField($model,'password'); ?>
-		<?php echo $form->error($model,'password'); ?>
+		<?php echo CHtml::submitButton('Отправить',array('class'=>'btn')); ?>
+	<br><br>
 	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'password2'); ?>
-		<?php echo $form->passwordField($model,'password2'); ?>
-		<?php echo $form->error($model,'password2'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'active_bit'); ?>
-		<?php echo $form->textField($model,'active_bit'); ?>
-		<?php echo $form->error($model,'active_bit'); ?>
-	</div>
- 
-	<div class="row">
-		<?php echo $form->labelEx($model,'ingroup'); ?>
-		<?php echo $form->DropDownList($model,'ingroup',Reestr::listOrg()); ?>
-		<?php //echo $form->textField($model,'ingroup'); ?>
-		<?php echo $form->error($model,'ingroup'); ?>
-	</div>
-
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'usersadmin'); ?>
-		<?php echo $form->textField($model,'usersadmin'); ?>
-		<?php echo $form->error($model,'usersadmin'); ?>
-	</div>
-<?php } else { ?> 
-
-	<div class="row">
-		<?php echo $form->dropDownList($model,'username',$model->spisokusers(),array('size'=>1,'maxlength'=>20)); ?>
-		<?php echo $form->error($model,'username'); ?>
-	</div>
- 
-	<div class="row">
-		<?php echo $form->labelEx($model,'password'); ?>
-		<?php echo $form->passwordField($model,'password'); ?>
-		<?php echo $form->error($model,'password'); ?>
-	</div>
- 
-<?php } ?> 
-	<div class="row buttons">
-		<?php echo CHtml::submitButton('Submit'); ?>
-	</div>
- 
+</div>
 <?php $this->endWidget(); ?>
  
 </div><!-- form -->

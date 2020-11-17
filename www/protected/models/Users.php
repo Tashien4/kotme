@@ -2,11 +2,7 @@
  
 class Users extends Activerecordlog
 {
-	public $login;
-//	public $usernamerus;
-	public $password;
-	public $password2;
-//	public $admin;
+
 //---------------------------------------
 	protected function beforeSave()	{
 		if(parent::beforeSave()) {
@@ -49,10 +45,9 @@ class Users extends Activerecordlog
 			array('lastlogin' ,'length', 'max'=>250),
 
 
-			array('active_docs' ,'length', 'max'=>1),
-			array('email' ,'email', 'required'),
-			array('usersadmin' ,'length', 'max'=>1),
-			array('admintab' ,'length', 'max'=>100),
+			array('progerss' ,'length', 'max'=>1),
+			array('email','email'),
+	
 
                 );
             }
@@ -60,7 +55,7 @@ class Users extends Activerecordlog
 	public function attributeLabels()
 	{
 		return array(
-			'name' => 'ФИО оператора',
+			'name' => 'ФИО',
 			'login' => 'Логин',
 			'active_doks' => 'Продвижение пользователя',
 //			'pasp_view' => '1-разрешен просмотр',
