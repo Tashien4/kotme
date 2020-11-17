@@ -73,9 +73,19 @@ $form=$this->beginWidget('CActiveForm', array(
 </div>
 </div>
 <div style="position: fixed;
+    right: 0px;
+    width: 40%;
+    top: 40%;
+    left: 60%;
+"> 
+	<img src='/kotme/www/images/for_game/crab_hello.gif' width=80%/>
+	</div>
+<div style="position: fixed;
     left: 0px;
     width: 30%;
-    top: 60%;"> <img src='/kotme/www/images/for_game/crab_idle.gif' width=80%/></div>
+    top: 60%;"> 
+	<img src='/kotme/www/images/for_game/crab_idle.gif' width=80%/>
+	</div>
 <?php $this->endWidget(); ?>
 </div><!-- form -->
 
