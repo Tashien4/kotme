@@ -1,4 +1,5 @@
-<?php   
+<?php
+
 class BeginController extends Controller {
 	public $layout='//layouts/column1';
 	private $_model;
@@ -25,7 +26,7 @@ class BeginController extends Controller {
 			),
 			array('allow', // allow authenticated users to access all actions
 				'actions'=>array('update','delete','create','list','all','cart','timeauto','postag','povozrg',
-							'step1','updatebd','form','defect','printdefect','invautocomplete',
+							'step1','updatebd','form','defect','printdefect','invautocomplete', 'task',
 							'fioautocomplete','fio2autocomplete','act','forma','viewProch','sablon1'),
 				'users'=>array('@'),
 			),
@@ -53,6 +54,10 @@ class BeginController extends Controller {
 		
 //}	
 				
+}
+public function actionTask() {
+	$model=Begin::model();
+	$this->render('task',array('model'=>$model));
 }
 //---------------------------------------------------------
 //----------------------------------------------

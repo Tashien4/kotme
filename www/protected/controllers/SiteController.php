@@ -310,15 +310,17 @@ print '=================='.$tab.'==================<br/>';
 		if(isset($_POST['LoginForm']))
 		{
 			$model->attributes=$_POST['LoginForm'];
-//print_r($model->attributes);
-
-                        $sql=sprintf("update users set lastlogin=now() where login='%s'",$model->login);
-                        Yii::app()->db->createCommand($sql)->execute();
-			if($model->validate() && $model->login()) {
+			//print_r($model->attributes);
+			
+			$sql=sprintf("update users set lastlogin=now() where login='%s'",$model->login);
+			Yii::app()->db->createCommand($sql)->execute();
+			if ($model->validate() && $model->login()) {
 				//if ((Yii::app()->user->returnUrl)&&(Yii::app()->user->returnUrl!=='/index.php') ){
-					if(Yii::app()->user->isProgress()>0)
+					if (Yii::app()->user->isProgress()>0) {
 						$this->redirect('/kotme/www/index.php/begin/cart');
-				 else $this->redirect('/kotme/www/index.php/begin/step1'); //Yii::app()->user->returnUrl);
+					} else {
+						$this->redirect('/kotme/www/index.php/begin/step1'); //Yii::app()->user->returnUrl);
+					}
 			}
 		}
 		$this->render('login',array('model'=>$model));
