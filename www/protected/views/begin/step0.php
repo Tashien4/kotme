@@ -8,35 +8,36 @@ input:focus:-moz-placeholder { color:transparent; } /* FF 4-18 */
 input:focus::-moz-placeholder { color:transparent; } /* FF 19+ */
 input:focus:-ms-input-placeholder { color:transparent; } /* IE 10+ */
 .panel{
-    width: 40%;
+    width: 100%;
     position: fixed;
-    top: 20%;
+    top: 25%;
     text-align: center;
-    left: 30%;
 }
 .menu{    position: fixed;
     top: 45%;
     left: 40%;
-    text-align: center;
-}}
-td{text-align:center;}
-.inside{
+}
+
+.inside{background-size: cover;
     text-align: center;
     position: fixed;
     top: 20%;
-    border-radius: 100px;
+    border-radius: 50px;
     left: 40%;
     padding: 20px 40px;
-    
+    font-weight: bold;
     z-index: 2;
-   
+    -webkit-text-stroke: 3px #e7a321;
+    background-image: url(/kotme/www/images/for_game/wood.jpg);
+    color: yellow;
+    font-size: 60px;
 }
 p{    color: yellow;
     font-size: 30px;
 	text-shadow: 2px 2px #a97311;
 	text-align:center;}
 input{font-size:30px;padding: 2px;
-    }
+    margin: 0px !important;}
 .row_buttons{text-align: center;}
 .btn:hover {
     background: #fcff35;
@@ -58,10 +59,13 @@ input{font-size:30px;padding: 2px;
     background: #FFEB3B;
     box-shadow: 0 8px 15px rgba(0,0,0,.1);
     transition: .3s;}
-a{    color: white !important;
-    margin: 5px;
-	text-align: left;
-	cursor:pointer;}
+a{       color: #6C461A !important;
+    line-height: 70px;
+    text-align: center;
+    cursor: pointer;
+    font-size: 40px;
+    font-weight: bold;
+    text-decoration: none;}
 	
 #mainmenu{display:none;}
 </style>
@@ -75,34 +79,14 @@ $form=$this->beginWidget('CActiveForm', array(
 		'validateOnSubmit'=>true,
 	),
 )); 
-
-$idd=(($id>0)?$id:0);?>
-
-	<div class="panel"><img src='/kotme/www/images/for_game/panel.png' width=80%/></div>
-    <div class="panel"><br>
-        <b style=" -webkit-text-stroke: 3px #e7a321;
-                    color: yellow;
-                    font-size: 60px;
-                    font-weight: bold;">KOTme</b><br>
-    <?php if($idd==0) echo'
-		<BR><b style="color: yellow;text-shadow: 2px 2px #a97311;">Нет аккаутна?
-		<a href="'.Yii::app()->baseUrl.'/index.php/site/newregistration">
-        Зарегистрируйся</a></b><br><BR>'.
-        $form->textField($model,'login',array('placeholder'=>'Логин','value'=>((isset($_GET['log'])?$_GET['log']:'')))).'
-		'.$form->passwordField($model,'password',array('placeholder'=>'Пароль')).'<br>
-		'.$form->error($model,'password').'
-		'.CHtml::submitButton('Войти',array('class'=>'btn','name'=>'log')).'
-			<br>
-
-</div>';
-else echo '<p style="margin:0px;">Регистрация</p>
-'.$form->textField($model,'login',array('placeholder'=>'Логин')).
-$form->textField($model,'name',array('placeholder'=>'Имя')).
-$form->passwordField($model,'password',array('placeholder'=>'Пароль')).'
-<br>'.
-CHtml::submitButton('Отправить',array('class'=>'btn')).'
-
-<a href="'.Yii::app()->baseUrl.'/index.php/site/login">Назад</a>';?>
+?>
+<div class="inside">KOTme</div>
+<div class="panel"><img src='/kotme/www/images/for_game/menu.png' width=30%/></div>
+<div class="panel"><br><br><br><br>
+        <a href="<?php echo Yii::app()->baseUrl;?>/index.php/begin/cart">Играть</a><br>
+        <a href="<?php echo Yii::app()->baseUrl;?>/index.php/begin/achivment">Достижения</a><br>
+        <a href="<?php echo Yii::app()->baseUrl;?>/index.php/begin/legent">Легенда</a>
+</div>
 <div style="position: fixed;
     right: 0px;
     width: 30%;
@@ -126,16 +110,3 @@ CHtml::submitButton('Отправить',array('class'=>'btn')).'
 <?php $this->endWidget(); ?>
 </div><!-- form -->
 
-<script>
-function visible() {
- var a = document.getElementById("reg");
- var b = document.getElementById("reg2");
- if (a.style.display != "block")
-    {a.style.display = 'block';b.style.display = 'block';}
-
- else {a.style.display = 'none';b.style.display = 'none';}
- 
-
-}
-
-</script>

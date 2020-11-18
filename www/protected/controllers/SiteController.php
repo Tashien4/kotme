@@ -319,11 +319,11 @@ print '=================='.$tab.'==================<br/>';
 					if (Yii::app()->user->isProgress()>0) {
 						$this->redirect('/kotme/www/index.php/begin/cart');
 					} else {
-						$this->redirect('/kotme/www/index.php/begin/step1'); //Yii::app()->user->returnUrl);
+						$this->redirect('/kotme/www/index.php/begin/step0'); //Yii::app()->user->returnUrl);
 					}
 			}
 		}
-		$this->render('login',array('model'=>$model));
+		$this->render('login',array('model'=>$model,'id'=>0));
 	}
 
 //-----------------------------------------------------------

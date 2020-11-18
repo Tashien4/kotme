@@ -109,24 +109,8 @@ return array(
 
 
 	'params'=>array(
-		'adminEmail'=>'avs@adm-serov.ru',
-                'cur_fio'=>'',
-                'cur_tab'=>$_SESSION['cur_tab'],
-                'cur_otd'=>0,
-                'A_fio'=> array("0"=>" " ),
-                'A_period'=> array(),
-                'A_type'=> array(),
-                'tempo' => 0,
-                'liveonly' => 1,
-                'cur_god'=>$_SESSION['cur_god'],
-                'cur_mes'=>$_SESSION['cur_mes'],
-		'postsPerPage'=>10,
-		// this is used in contact page
-		'adminEmail'=>'avs@adm-serov.ru',
-		'operations'=>array(	
-		//	array('label'=>'Домой', 'url'=>array('dela/list')),
-//			array('label'=>'Добавить новую фамилию', 'url'=>array('fio/create')),
-		),
+		'adminEmail'=>'avs@adm.ru',
+   
                 'workmenu'=>array(
 		),
 		
