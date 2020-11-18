@@ -1,6 +1,9 @@
 <?php $this->pageTitle=Yii::app()->name . ' - Login';?>
 <style>
-body {font-size:20px;}
+body {font-size:20px;
+    background-size: cover;
+	position: relative;
+background-image: url('/kotme/www/images/for_game/fon.png');}
 input:focus::-webkit-input-placeholder { color:transparent; }
 input:focus:-moz-placeholder { color:transparent; } /* FF 4-18 */
 input:focus::-moz-placeholder { color:transparent; } /* FF 19+ */

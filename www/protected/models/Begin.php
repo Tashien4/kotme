@@ -98,7 +98,7 @@ public function sp_Fio() {
 //-------------------------------------
 //----------------------------------------------------------------------------
 public function getCharacterText($id) {
-	
+	if($id==0) $id=1;
 		$command=Yii::app()->db->createCommand("
 			SELECT text
 			FROM `character_replics`

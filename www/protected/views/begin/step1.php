@@ -1,8 +1,6 @@
 
 <style>
-body{background-size: cover;
-	position: relative;
-background-image: url('/kotme/www/images/for_game/fon_2.jpg');}
+
 .paper{	background-size: 100%; 
    text-align:center;
    background-size: 100%; 
