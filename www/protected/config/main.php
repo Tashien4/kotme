@@ -7,25 +7,6 @@
 // CWebApplication properties can be configured here.
 
 session_start();
-if (!isset($_SESSION['cur_mes'])) {
-	$_SESSION['cur_npunkt'] = 0;
-	$_SESSION['cur_bls'] = 0;
-	$_SESSION['cur_dela'] = 0;
-	$_SESSION['cur_delas'] = array();
-	$_SESSION['cur_adr'] = '';
-	$_SESSION['cur_tab'] = 0;
-	$_SESSION['cur_fio'] = '';
-
-	$_SESSION['cur_god'] = date('Y');
-	$_SESSION['cur_mes'] = date('m');
-	if (date('d')<3) {
-	   if (date('m') == 1) {
-	      $_SESSION['cur_mes'] = 12;
-	      $_SESSION['cur_god']--;
-	   }
-	   else $_SESSION['cur_mes']--;
-	}
-}
 
 //echo $_GET['rperiod'];
 
