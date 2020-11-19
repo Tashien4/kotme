@@ -63,14 +63,8 @@ public function actionExercise() {
 }
 
 //----------------------------------------------
-<<<<<<< HEAD
-	public function actionStep1() {
-	//	$id=$_GET['id'];
-	//	$fmodel=Fio::model()->findByPk($id);
-=======
 	public function actionStep0()	{ 
 
->>>>>>> d44deb1efa8f2472b195bff0923f2c859b3a86df
 	$model=Begin::model();
 $this->render('step0',array('model'=>$model));
 }
