@@ -117,11 +117,11 @@ CHtml::submitButton('Отправить',array('class'=>'btn')).'
     top: 70%;"> 
 	<img src='/kotme/www/images/for_game/crab_idle.gif' width=80%/>
 	</div>
-    <div style="position: fixed;
-    left: 0px;
-    width: 30%;
-    top: 70%;"> 
-	<img src='/kotme/www/images/for_game/angry.gif' width=80%/>
+    <div style="
+        position: fixed;
+    right: 0Px;
+    top: 20%;"> 
+	<img src='/kotme/www/images/for_game/hello.gif' width=150%/>
 	</div>
 <?php $this->endWidget(); ?>
 </div><!-- form -->
