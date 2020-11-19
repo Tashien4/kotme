@@ -1,0 +1,8 @@
+fun stepsCounting(...) {
+    ...
+}
+
+fun moveToGoal(goalIsClose: (step: Int) -> Boolean) {
+    ...
+}
+

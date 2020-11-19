@@ -33,7 +33,7 @@ footer{  display:flex;
 <footer> 
   <div class="char">
   <?php echo $model->getCharacterText(Yii::app()->user->isProgressChar())?><br><br>
-  <a href="task">>>></a>
+  <a href="exercise">>>></a>
     </div><div class="icon">
     <img id="character" src='/kotme/www/images/for_game/Character.png' width=75% />
     </div>

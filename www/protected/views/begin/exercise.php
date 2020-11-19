@@ -52,7 +52,7 @@ textarea {
     <script src="/kotme/www/js/jquery-1.4.2.min.js"></script>
     <script type="text/javascript" src="/kotme/www/codemirror/codemirror.js"></script>
     <script type="text/javascript" src="/kotme/www/codemirror/clike.js"></script>
-    <script type="text/javascript" src="/kotme/www/js/task.js"></script>
+    <script type="text/javascript" src="/kotme/www/js/exercise.js"></script>
 
     <label id="desc"></label>
 <textarea id="code"></textarea>
