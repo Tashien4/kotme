@@ -2,28 +2,41 @@
 <style>
 body {font-size:20px;
     background-size: cover;
-	position: relative;
-background-image: url('/kotme/www/images/for_game/fon.png');}
+background-image: url('/kotme/www/images/for_game/b_3.png');}
 input:focus::-webkit-input-placeholder { color:transparent; }
 input:focus:-moz-placeholder { color:transparent; } /* FF 4-18 */
 input:focus::-moz-placeholder { color:transparent; } /* FF 19+ */
 input:focus:-ms-input-placeholder { color:transparent; } /* IE 10+ */
 .panel{
-	width:35%;
-	background-size: cover;
+    width: 40%;
     position: fixed;
-    top: 25%;
-	left: 30%;
-	background-image: url('/kotme/www/images/for_game/panel.png');
+    top: 20%;
+    text-align: center;
+    left: 30%;
 }
+.menu{    position: fixed;
+    top: 45%;
+    left: 40%;
+    text-align: center;
+}}
 td{text-align:center;}
-.inside{padding: 5% 10% 0 10%;font-size:20px;text-align: center;}
+.inside{
+    text-align: center;
+    position: fixed;
+    top: 20%;
+    border-radius: 100px;
+    left: 40%;
+    padding: 20px 40px;
+    
+    z-index: 2;
+   
+}
 p{    color: yellow;
     font-size: 30px;
 	text-shadow: 2px 2px #a97311;
 	text-align:center;}
 input{font-size:30px;padding: 2px;
-    margin: 0px !important;}
+    }
 .row_buttons{text-align: center;}
 .btn:hover {
     background: #fcff35;
@@ -61,24 +74,39 @@ $form=$this->beginWidget('CActiveForm', array(
 	'clientOptions'=>array(
 		'validateOnSubmit'=>true,
 	),
-)); ?>
+)); 
 
-	<div class="panel">
-	<div class="inside">
-		<br><p>Войдите для того, чтобы начались приключения</p>
-		<div style="color: yellow;text-shadow: 2px 2px #a97311;">Нет аккаутна?
-		<a href='<?php echo Yii::app()->baseUrl.'/index.php/site/newregistration'?>'>Зарегистрируйся</a></div><br>
-		<?php echo $form->textField($model,'login',array('placeholder'=>'Логин','value'=>((isset($_GET['log'])?$_GET['log']:'')))); ?><br><br>
-		<?php echo $form->passwordField($model,'password',array('placeholder'=>'Пароль')); ?><br><br>
-		<br><?php echo $form->error($model,'password'); ?><br>
-			<?php echo CHtml::submitButton('Войти',array('class'=>'btn','name'=>'log')); ?>
-			<br><br>
-</div>
-</div>
+$idd=(($id>0)?$id:0);?>
+
+	<div class="panel"><img src='/kotme/www/images/for_game/panel.png' width=80%/></div>
+    <div class="panel"><br>
+        <b style=" -webkit-text-stroke: 3px #e7a321;
+                    color: yellow;
+                    font-size: 60px;
+                    font-weight: bold;">KOTme</b><br>
+    <?php if($idd==0) echo'
+		<BR><b style="color: yellow;text-shadow: 2px 2px #a97311;">Нет аккаутна?
+		<a href="'.Yii::app()->baseUrl.'/index.php/site/newregistration">
+        Зарегистрируйся</a></b><br><BR>'.
+        $form->textField($model,'login',array('placeholder'=>'Логин','value'=>((isset($_GET['log'])?$_GET['log']:'')))).'
+		'.$form->passwordField($model,'password',array('placeholder'=>'Пароль')).'<br>
+		'.$form->error($model,'password').'
+		'.CHtml::submitButton('Войти',array('class'=>'btn','name'=>'log')).'
+			<br>
+
+</div>';
+else echo '<p style="margin:0px;">Регистрация</p>
+'.$form->textField($model,'login',array('placeholder'=>'Логин')).
+$form->textField($model,'name',array('placeholder'=>'Имя')).
+$form->passwordField($model,'password',array('placeholder'=>'Пароль')).'
+<br>'.
+CHtml::submitButton('Отправить',array('class'=>'btn')).'
+
+<a href="'.Yii::app()->baseUrl.'/index.php/site/login">Назад</a>';?>
 <div style="position: fixed;
     right: 0px;
-    width: 40%;
-    top: 40%;
+    width: 30%;
+    top: 70%;
     left: 60%;
 "> 
 	<img src='/kotme/www/images/for_game/crab_hello.gif' width=80%/>
@@ -86,8 +114,14 @@ $form=$this->beginWidget('CActiveForm', array(
 <div style="position: fixed;
     left: 0px;
     width: 30%;
-    top: 60%;"> 
+    top: 70%;"> 
 	<img src='/kotme/www/images/for_game/crab_idle.gif' width=80%/>
+	</div>
+    <div style="
+        position: fixed;
+    right: 0Px;
+    top: 20%;"> 
+	<img src='/kotme/www/images/for_game/hello.gif' width=150%/>
 	</div>
 <?php $this->endWidget(); ?>
 </div><!-- form -->
