@@ -316,11 +316,11 @@ print '=================='.$tab.'==================<br/>';
 			Yii::app()->db->createCommand($sql)->execute();
 			if ($model->validate() && $model->login()) {
 				//if ((Yii::app()->user->returnUrl)&&(Yii::app()->user->returnUrl!=='/index.php') ){
-					//if (Yii::app()->user->isProgress()>0) {
-					//	$this->redirect('/kotme/www/index.php/begin/cart');
-				//	} else {
-						$this->redirect('/kotme/www/index.php/begin/step0'); //Yii::app()->user->returnUrl);
-					//}
+					if (Yii::app()->user->isProgress()>0) {
+						$this->redirect('/kotme/www/index.php/begin/step0');
+					} else {
+						$this->redirect('/kotme/www/index.php/begin/legent'); //Yii::app()->user->returnUrl);
+					}
 			}
 		}
 		$this->render('login',array('model'=>$model,'id'=>0));

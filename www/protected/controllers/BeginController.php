@@ -26,7 +26,8 @@ public function actionIndex()	{
 			),
 			array('allow', // allow authenticated users to access all actions
 				'actions'=>array('update','delete','create','list','all','cart',
-							'step1','step0','achivment','legent', 'exercise', 'getExercise'),
+							'step1','step0','achivment','legent', 'exercise', 
+							'getExercise'),
 				'users'=>array('@'),
 			),
 			array('deny',  // deny all users
@@ -85,9 +86,8 @@ $this->render('achivment',array('model'=>$model));
 //----------------------------------------------
 
 public function actionLegent()	{ 
-
 	$model=Begin::model();
-$this->render('legent',array('model'=>$model));
+	$this->render('legent',array('model'=>$model));
 }
 //----------------------------------------------
 public function actionCart()	{ 
