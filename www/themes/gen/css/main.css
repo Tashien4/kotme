@@ -6,12 +6,11 @@ body
 	font: normal 10pt "Century Gothic",Arial,Helvetica,sans-serif;
 	background: no-repeat center center fixed;
 	 background-size: 100%;
-	 background-image: url('/kotme/www/images/for_game/fon_2.jpg');
+	 background-image: url('/kotme/www/images/for_game/fon 2.png');
 }
 
 #page
 {
-	margin-top: 5px;
 	margin-bottom: 5px;
 }
 
@@ -279,11 +278,40 @@ div#content h1 {
 }
 
 div#mainmenu {
-	background-color: #f4f4f4;
-	height: 43px;
-	box-shadow: 0 1px #fff inset, 0 -1px #ddd inset;
-    -moz-box-shadow: 0 1px #fff inset, 0 -1px #ddd inset;
-    -webkit-box-shadow: 0 1px #fff inset, 0 -1px #ddd inset;
+
+	height: 50px;
+	text-align: center;
+	background: #5C470F;
+	border: 2px solid #F8A446;
+	box-sizing: border-box;
+	display: flex;
+	border-radius: 0px 0px 65px 65px;
+	font-size: 15px;
+}
+#nav-menu, #nav-exit{ align-self: center;padding: 0% 10%;}
+#nav-menu a, #nav-exit a{ text-decoration: none;
+    cursor: pointer;
+    padding: 10px 20px;
+  
+    font-weight: bold;
+    
+	border-radius: 5px;}
+#nav-menu a {background: #EF8000;  color: white;}
+#nav-exit a {background: #ffeb3b;color: black;}		
+#slider-range-max{
+	padding: 0% 20%;
+	width: 30%;
+	align-self: center;
+    display: inline-block;
+	background: #D9DD22;
+	pointer-events: none;
+}
+
+.ui-slider-handle {
+	display:none !important;
+}
+.ui-slider-range {
+	border-radius:0px;
 }
 
 div#mainmenu ul {

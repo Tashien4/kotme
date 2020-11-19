@@ -13,10 +13,24 @@
 
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->theme->baseUrl; ?>/css/main.css" />
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/form.css" />
-
+	<link rel="stylesheet" href="//apps.bdimg.com/libs/jqueryui/1.10.4/css/jquery-ui.min.css">
+  <script src="//apps.bdimg.com/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script src="//apps.bdimg.com/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+  <link rel="stylesheet" href="jqueryui/style.css">
 	<title><?php echo CHtml::encode($this->pageTitle); ?></title>
 </head>
+<script>
+  $(function() {
+    $( "#slider-range-max" ).slider({
+      range: "max",
+      min: 1,
+      max: 10,
+      value: <?php echo Yii::app()->user->isProgress();?>,
 
+    });
+    
+  });
+  </script>
 <body>
 
 <div class="container" id="page">
@@ -25,8 +39,12 @@
 		<div id="logo"><?php echo CHtml::encode(Yii::app()->name); ?><br><Br></div>
 	</div-->
 	<div id="mainmenu">
+	<div id="nav-menu"><a href="<?php echo Yii::app()->baseUrl;?>/index.php/begin/step0">Меню</a></div>
+			<div id="slider-range-max" title="<?php echo Yii::app()->user->isProgress();?>/10"></div>
+			<div id="nav-exit"><a href="<?php echo Yii::app()->baseUrl;?>/index.php/site/logout">Выйти</a></div>
 		<?php /*$this->widget('zii.widgets.CMenu',array(
 			'items'=>array(
+
 				array('label'=>'Техника', 'url'=>array('/reestr/edit', 'id'=>'0')),
 				array('label'=>'История', 'url'=>array('/his/jour')),
 				array('label'=>'Документы', 'url'=>array('/defect/defect')),
@@ -35,7 +53,7 @@
 				
                                 
 			),
-		)); */?>
+		));*/ ?>
 	</div><!-- mainmenu -->
 	<?php if(isset($this->breadcrumbs)):?>
 		<?php $this->widget('zii.widgets.CBreadcrumbs', array(
