@@ -119,6 +119,7 @@ div#mainmenu{display:none;}
             <a href="<?php echo Yii::app()->baseUrl; ?>/index.php/begin/legent">Легенда</a>
         </div>
     </div>
+<<<<<<< HEAD
     <div style="position: fixed;
          right: 0px;
          width: 30%;
@@ -134,10 +135,32 @@ div#mainmenu{display:none;}
         <img src='/kotme/www/images/for_game/crab_idle.gif' width=80%/>
     </div>
     <div style="position: fixed;
+=======
+    <div style="position: fixed;
+         right: 0px;
+         width: 30%;
+         top: 70%;
+         left: 60%;
+         "> 
+        <img src='/kotme/www/images/for_game/crab_hello.gif' width=80%/>
+    </div>
+    <div style="position: fixed;
+         left: 0px;
+         width: 30%;
+         top: 70%;"> 
+        <img src='/kotme/www/images/for_game/crab_idle.gif' width=80%/>
+    </div>
+    <div style="position: fixed;
+>>>>>>> d248990a42bd98295365c556fccc733722d391e4
          left: 0px;
          width: 30%;
          top: 70%;"> 
         <img src='/kotme/www/images/for_game/angry.gif' width=80%/>
     </div>
     <?php $this->endWidget(); ?>
+<<<<<<< HEAD
 </div><!-- form -->
+=======
+</div><!-- form -->
+
+>>>>>>> d248990a42bd98295365c556fccc733722d391e4
