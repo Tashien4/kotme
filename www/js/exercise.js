@@ -11,34 +11,9 @@ $(document).ready(function () {
         return new URLSearchParams(window.location.search).get('n');
     }
 
-    function getCurrentExercise() {
-        $("#status").text("");
-        $("#desc").text("");
-        editor.setValue("");
-
-        $.ajax({
-            type: 'GET',
-            url: "getExercise",
-            data: ({
-                exeNum: getExerciseNum()
-            }),
-            success: (function (data, textStatus, jqXHR) {
-                var json = JSON.parse(data);
-                $("#desc").text(json.desc);
-
-                editor.setValue(json.code);
-            })
-        });
-    }
-
-
-    getCurrentExercise();
-
-    $("#exercise").change(getCurrentExercise);
-
     $('#submit').click(function () {
         $("#status").text("Проверяем...");
-        info = $('#code').val();
+        info = editor.getValue();
         $.ajax({
             type: 'POST',
             url: "check",
