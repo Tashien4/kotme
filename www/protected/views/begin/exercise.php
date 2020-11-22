@@ -11,9 +11,27 @@
     }
 
     label {
-        white-space: pre-wrap;
+        /*white-space: pre-wrap;*/
+        padding: 20px 0;
     }
-
+    #desc{
+        width:100%;
+        position: relative;}
+    .text, .task {
+        width: 90%;
+        font-size: 20px;
+        text-align: center;
+        left: 0;
+        right: 0;
+        margin: auto;
+        border: 2px solid #EF8000;}
+    .text{  
+        background: #FFDC82;
+        display:flex;
+        }
+    .task{
+        background: #FFD4A4;
+    }
     button {
         text-decoration: none;
         outline: none;
@@ -46,7 +64,23 @@
         background-color: black;
         color: white;
     }
+    img{
+        width:10%;
+        background: #F8A446;
+        border-radius: 130px 117px 0px 0px;
+    }
+    .btn{background:#D59F13;
+        padding:10px;
+        font-weight: bold;
+        font-size: 24px;
+        line-height: 28px;
+        text-align: center;
+        color: #6C461A;
+        border-radius:10px;
+        text-decoration:none;}
 </style>
+<?php $exeNum = $_GET["n"];
+echo '<a href="lessons?id='.$exeNum.'" class="btn">Вернуться к лекции</a><br>';?>
 <link rel="stylesheet" href="/kotme/www/codemirror/codemirror.css">
 <link rel="stylesheet" href="/kotme/www/codemirror/darcula.css">
 <script src="/kotme/www/js/jquery-1.4.2.min.js"></script>
@@ -54,15 +88,19 @@
 <script type="text/javascript" src="/kotme/www/codemirror/clike.js"></script>
 <script type="text/javascript" src="/kotme/www/js/exercise.js"></script>
 
-
-
-
 <?php
-$exeNum = $_GET["n"];
-
 if ($exeNum != NULL) {
     echo "<label id=\"desc\">";
-    echo file_get_contents("protected/exercises/desc" . $exeNum, false, NULL);
+    $text= $model->giveMeLesson();
+   echo '<div class="text">
+                <div style="width: 100%;">'.$text['text'].'</div>
+                <img src="/kotme/www/images/for_game/icon.png"/>
+         </div>
+         <div class="task">
+            <h4>Задание '.$exeNum.'</h4>
+            '.$text['task'].'
+        </div>';
+   // echo file_get_contents("protected/exercises/desc" . $exeNum, false, NULL);
     echo "</label>";
 
     echo "<textarea id=\"code\">";
@@ -73,5 +111,5 @@ if ($exeNum != NULL) {
 }
 ?>
 
-<button id="submit">Отправить</button>
+<div style="text-align:center;"><button id="submit">Отправить</button></div>
 <label id="status"></label>

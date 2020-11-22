@@ -45,7 +45,7 @@ public function primaryKey() {
 
 //----------------------------------------------------------------------------
 public function getCharacterText($id) {
-	if($id==0) $id=1;
+	$id=$id+1;
 		$command=Yii::app()->db->createCommand("
 			SELECT text
 			FROM `character_replics`
@@ -53,11 +53,30 @@ public function getCharacterText($id) {
 		$urecords = $command->queryRow();
 		return ($urecords['text']);
 	
-}
-
-
-	
+}	
 //---------------------------------------
+public function nextStep() {
+	$id=Yii::app()->user->id;
+	$command=Yii::app()->db->createCommand("
+			update users
+			set character_rep+=1,progerss+=1
+			WHERE id=".$id);
+	$command->execute();
+}
+//---------------------------------------
+//---------------------------------------
+public function giveMeLesson() {
+	$id=Yii::app()->user->isProgressChar()+1;
+	$command=Yii::app()->db->createCommand("
+			SELECT *
+			FROM task
+			WHERE id=".$id);
+		$urecords = $command->queryRow();
+		return $urecords;
+}
+//---------------------------------------
+
+
 	/*public function search($params=array()) {
 		
 

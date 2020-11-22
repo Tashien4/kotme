@@ -23,7 +23,7 @@ class Lessons extends Activerecordlog
             public function rules() {
                 return array(
 			array('id', 'length', 'max'=>50,'message'=>'Ошибка 1'),
-			array('text' ,'length', 'max'=>1000,'message'=>'Ошибка 2'),
+			array('text,name,code' ,'length', 'max'=>1000,'message'=>'Ошибка 2'),
                 );
             }
 //---------------------------------------

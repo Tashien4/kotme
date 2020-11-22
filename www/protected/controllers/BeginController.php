@@ -26,9 +26,10 @@ class BeginController extends Controller {
                 'users' => array('*'),
             ),
             array('allow', // allow authenticated users to access all actions
-                'actions' => array('update', 'delete', 'create', 'list', 'all', 'cart',
-                    'step1', 'step0', 'achivment', 'legent', 'exercise',
-                    'check'),
+                'actions' => array('update', 'delete', 'create', 
+                                    'list', 'all', 'cart','lessons',
+                                    'step1', 'step0', 'achivment', 
+                                    'legent','exercise','check'),
                 'users' => array('@'),
             ),
             array('deny', // deny all users
@@ -60,7 +61,7 @@ class BeginController extends Controller {
                 } else if (strlen($result) == 0) {
                     
                     // записать в базу прогресс
-                    
+                    $model->nextStep();
                     echo "Отличное начало. Продолжай в том же духе!";
                 } else {
                     echo $result;
@@ -75,7 +76,7 @@ class BeginController extends Controller {
         // Завершаем приложение
         Yii::app()->end();
     }
-
+//---------------------------------------------------------
     public function actionExercise() {
         $exercise = $_GET["n"];
         
@@ -101,6 +102,16 @@ class BeginController extends Controller {
     }
 
 //----------------------------------------------
+//----------------------------------------------
+public function actionLessons() {
+    if(isset($_GET['id']))
+        $id=$_GET['id'];
+        else $id=Yii::app()->user->isProgressChar();
+    $model = Lessons::model()->findByPk($id);
+    $this->render('lessons', array('model' => $model,'id'=>$id));
+}
+
+//----------------------------------------------
     public function actionStep1() {
 
         $model = Begin::model();
@@ -124,11 +135,10 @@ class BeginController extends Controller {
 
 //----------------------------------------------
     public function actionCart() {
-        //	$id=$_GET['id'];
-        //	$fmodel=Fio::model()->findByPk($id);
         $model = Begin::model();
-//$gurl=" "; 
-
+        if(isset($_POST['next'])) {
+            $this->redirect('/kotme/www/index.php/begin/exercise?n='.Yii::app()->user->isProgressChar());
+        }
         $this->render('cart', array('model' => $model));
     }
 

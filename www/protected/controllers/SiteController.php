@@ -36,43 +36,7 @@ class SiteController extends Controller
 	}
 
 //-----------------------------------------------------------
-	/**
-	 * Displays the login page
-	 */
-/*	public function actionLogin()
-	{
-		$model=new LoginForm;
-		Yii::app()->params['operations']=array(
-//				array('label'=>'Регистрация нового', 'url'=>array('site/newregistration')),
-                        );
-		Yii::app()->params['workmenu']=array(
-		);
 
-
-		// if it is ajax validation request
-		if(isset($_POST['ajax']) && $_POST['ajax']==='login-form')
-		{
-			echo CActiveForm::validate($model);
-			Yii::app()->end();
-		}
-
-		// collect user input data
-		if(isset($_POST['LoginForm']))
-		{
-			$model->attributes=$_POST['LoginForm'];
-			// validate user input and redirect to the previous page if valid
-			if($model->validate() && $model->login()) {
-				if ((Yii::app()->user->returnUrl)&&(Yii::app()->user->returnUrl!=='/index.php') ){
-					$this->redirect(Yii::app()->user->returnUrl);
-				} else $this->redirect('/index.php/dela/list'); //Yii::app()->user->returnUrl);
-			}
-		}
-		// display the login form
-		$this->render('login',array('model'=>$model));
-	}
-	   */
-//-----------------------------------------------------------
-//-----------------------------------------------------------
 //-----------------------------------------------------------
 	public function actionUpdate() {
 
@@ -158,51 +122,6 @@ print '=================='.$tab.'==================<br/>';
 			$this->redirect(array('update','id'=>$tab));
 		}
 
-/*			if ($tab>0) $model=Fio::model()->findByPk($tab);  
-			else {
-				$model=New Fio;
-				//	if($tab=-1)
-					$model->otdel=-1;
-		
-			}
-
-			if(isset($_POST['Fio_button']) or  (isset($_POST['Fio']['hfio']) and ($_POST['Fio']['hfio']>0))) { 
-
-				if(isset($_POST['Fio_button'])) { 
-					$nd=$_POST['Fio']['newdevice'];
-//print $nd;
-					if (isset($adddevice[$nd])) { // выбрано пустое устройство
-						$type=$nd;
-					} else {
-						list($inv_nom,$type)=explode(':',$nd);
-					}
-//print $type;
-					if ($type>0) {
-						$tables=Pc::model()->getTables($type);	
-						$obj=strtoupper(substr($tables['fromtable'],0,1)).substr($tables['fromtable'],1);
-						if ($obj=='Pc') $model=new Pc;
-						elseif ($obj=='Monitors') $model=new Monitors;
-						elseif ($obj=='Moduls') $model=new Moduls;
-						elseif ($obj=='Printer') $model=new Printer;
-						elseif ($obj=='Proch') $model=new Proch;
-						elseif ($obj=='HDD') $model=new HDD;
-						elseif ($obj=='Netcard') $model=new Netcard;
-//print $obj;
-						$model->type=$type;
-						if (isset($inv_nom)) $model->inv_nom=$inv_nom;
-
-						$model->tab=$tab;
-						if ($model->validate()) {
-							$model->save();
-//						$this->redirect(array('forma','id'=>$model->id));
-						} else print_r($model->geterrors());  
-					}
-				}
-				if(isset($_POST['Fio']['tab']) and ($_POST['Fio']['tab']!=$tab)) {
-					$this->redirect(array('edit','id'=>$_POST['Fio']['tab']));
-				}
-			}
-*/
 		$model=Users::model();
 		if(isset($_GET['Users'])) {
 			$model->attributes=$_GET['Users'];
