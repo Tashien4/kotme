@@ -16,6 +16,7 @@ if ($result === FALSE) {
 } else if (strlen($result) == 0) {
    
     echo "Отличное начало. Продолжай в том же духе!";
+    
 } else {
     echo $result;
 }

@@ -19,18 +19,6 @@
   <link rel="stylesheet" href="jqueryui/style.css">
 	<title><?php echo CHtml::encode($this->pageTitle); ?></title>
 </head>
-<script>
-  $(function() {
-    $( "#slider-range-max" ).slider({
-      range: "max",
-      min: 1,
-      max: 10,
-      value: <?php echo Yii::app()->user->isProgress();?>,
-
-    });
-    
-  });
-  </script>
 <body>
 
 <div class="container" id="page">
@@ -40,7 +28,16 @@
 	</div-->
 	<div id="mainmenu">
 	<div id="nav-menu"><a href="<?php echo Yii::app()->baseUrl;?>/index.php/begin/step0">Меню</a></div>
-			<div id="slider-range-max" title="<?php echo Yii::app()->user->isProgress();?>/10"></div>
+			<div id="slider-range-max" title="<?php echo Yii::app()->user->isProgress();?>/10">
+				<table>
+				<tr><?php for($i=1;$i<11;$i++)
+								echo '<td style="background:'.
+								(($i<=Yii::app()->user->isProgress())?'#D9DD22':'#e6e6e6').'">&#8195;</td>';
+							?></tr>
+				</table>
+			</div>
+			
+			
 			<div id="nav-exit"><a href="<?php echo Yii::app()->baseUrl;?>/index.php/site/logout">Выйти</a></div>
 		<?php /*$this->widget('zii.widgets.CMenu',array(
 			'items'=>array(

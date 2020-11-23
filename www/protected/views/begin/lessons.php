@@ -30,12 +30,7 @@ h4{font-size: 30px;
     padding:10px;
     border:1px solid #EF8000;}
 </style>
-<link rel="stylesheet" href="/kotme/www/codemirror/codemirror.css">
-<link rel="stylesheet" href="/kotme/www/codemirror/darcula.css">
-<script src="/kotme/www/js/jquery-1.4.2.min.js"></script>
-<script type="text/javascript" src="/kotme/www/codemirror/codemirror.js"></script>
-<script type="text/javascript" src="/kotme/www/codemirror/clike.js"></script>
-<script type="text/javascript" src="/kotme/www/js/exercise.js"></script>
+
 <div class="all">
 <div class="frame1">
 <?php 

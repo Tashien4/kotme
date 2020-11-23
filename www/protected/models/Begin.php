@@ -55,30 +55,63 @@ public function getCharacterText($id) {
 	
 }	
 //---------------------------------------
-public function nextStep() {
-	$id=Yii::app()->user->id;
+public function getMyAnswer($id) {
+	$id_u=Yii::app()->user->id;
+		$command=Yii::app()->db->createCommand("
+			SELECT code
+			FROM user_code
+			WHERE user_id=".$id_u." and task=".$id);
+		$urecords = $command->queryRow();
+		return ($urecords['code']);
+	
+}	
+//---------------------------------------
+public function nextStep($code) {
+    $id=Yii::app()->user->id;
+	$cods=explode('exercise=',$code);
+	$code=$cods[0];
+	$task=$cods[1]; 
+	
+	//нормальный формат записи
+	$content=substr($code,0,-1); 
+	 $content=explode('code=',$content);
+	 $content = str_replace('+',' ', $content[1]);
+     $code=rawurldecode($content);
+	
 	$command=Yii::app()->db->createCommand("
+			SELECT if((progerss+1)>".$task.",1,0) as stat
+			FROM users
+			WHERE id=".$id);
+	$urecords = $command->queryRow();
+
+	if($urecords['stat']==0)
+		$command=Yii::app()->db->createCommand("
 			update users
 			set character_rep=character_rep+1,progerss=progerss+1
 			WHERE id=".$id);
-	$command->execute();
+		$command->execute();
+	
+	$command=Yii::app()->db->createCommand("
+			SELECT id
+			FROM user_code
+			WHERE user_id=".$id." and task=".$task." and code like '".$code."'");
+	$urecords = $command->queryRow();
+	if($urecords['id']!='')
+		$command=Yii::app()->db->createCommand("
+			update user_code
+			set code='".$code."'
+			WHERE id=".$urecords['id']);
+	else 	$command=Yii::app()->db->createCommand("
+					insert into user_code (user_id,code,task)
+					values (".$id.",'".$code."','".$task."')");
+			$command->execute();
 	
 }
 //---------------------------------------
-//---------------------------------------
-public function execJs_forme($tag) {
-$js='<script>
-var t=document.getElementById("'.$tag.'");
-t.style.display="block";
-</script>';
 
-		return ($js);
-	
-}
 //---------------------------------------
-//---------------------------------------
-public function giveMeLesson() {
-	$id=Yii::app()->user->isProgressChar()+1;
+public function giveMeLesson($id) {
+	//$id=Yii::app()->user->isProgressChar()+1;
 	$command=Yii::app()->db->createCommand("
 			SELECT *
 			FROM task

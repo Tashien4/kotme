@@ -9,10 +9,16 @@
     label, textarea, button {
         display: block;
     }
-
     label {
         /*white-space: pre-wrap;*/
         padding: 20px 0;
+    }
+    #status {
+        /*white-space: pre-wrap;*/
+        padding: 20px !important;
+        border: 1px solid black;
+        background: #DCDCDC;
+        margin: 5px;
     }
     #desc{
         width:100%;
@@ -32,7 +38,7 @@
     .task{
         background: #FFD4A4;
     }
-    button {
+    .btn {
         text-decoration: none;
         outline: none;
         display: inline-block;
@@ -51,7 +57,7 @@
         transition: .3s;
     }
 
-    button:hover {
+    .btn:hover {
         background: #fcff35;
         box-shadow: 0 15px 20px rgb(229 122 46 / 40%);
         color: black;
@@ -69,19 +75,20 @@
         background: #F8A446;
         border-radius: 130px 117px 0px 0px;
     }
-    .btn{background:#D59F13;
-        padding:10px;
-        font-weight: bold;
-        font-size: 24px;
-        line-height: 28px;
-        text-align: center;
-        color: #6C461A;
-        border-radius:10px;
-        text-decoration:none;}
+    /*.btn{background: #FFC107;
+    padding: 10px;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 28px;
+    width: 20%;
+    text-align: center;
+    
+    border-radius: 10px;
+    text-decoration: none;}*/
 </style>
 <?php $form=$this->beginWidget('CActiveForm');?>
 <?php $exeNum = $_GET["n"];
-echo '<a href="lessons?id='.$exeNum.'" class="btn">Вернуться к лекции</a><br>';?>
+echo '<a href="lessons?id='.$exeNum.'" class="btn" style="font-size: 15px !important;">Вернуться к лекции</a><br>';?>
 <link rel="stylesheet" href="/kotme/www/codemirror/codemirror.css">
 <link rel="stylesheet" href="/kotme/www/codemirror/darcula.css">
 <script src="/kotme/www/js/jquery-1.4.2.min.js"></script>
@@ -92,7 +99,7 @@ echo '<a href="lessons?id='.$exeNum.'" class="btn">Вернуться к лек�
 <?php
 if ($exeNum != NULL) {
     echo "<label id=\"desc\">";
-    $text= $model->giveMeLesson();
+    $text= $model->giveMeLesson($exeNum);
    echo '<div class="text">
                 <div style="width: 100%;">'.$text['text'].'</div>
                 <img src="/kotme/www/images/for_game/icon.png"/>
@@ -110,12 +117,21 @@ if ($exeNum != NULL) {
 } else {
     echo "Номер задачи не указан";
 }
-?>
 
+?>
 <div style="text-align:center;">
-    <button id="submit">Отправить</button>
-</div>
+    <button id="submit" class="btn">Отправить</button>
 <label id="status"></label>
 <?php echo '<a class="btn" id="nextstep" 
-        style="'.((isset($_GET['stat'])>0)?'display:block;':'display:none;').'" href="cart">Далее</a>';?>
-<?php $this->endWidget(); ?>
+        style="display:none;" href="cart">Далее</a>';?>
+
+</div><?php $this->endWidget(); ?>
+<script>
+    $(document).ready(function(){
+    $('#status').bind('DOMSubtreeModified', function(){
+        var txt = $('#status').text();
+        if(txt=="Отличное начало. Продолжай в том же духе!")
+  document.getElementById("nextstep").style.display = "inline-block";
+    });
+});
+</script>

@@ -55,11 +55,14 @@ class BeginController extends Controller {
 
                 $context = stream_context_create($options);
                 $result = file_get_contents('http://127.0.0.1:8888', false, $context);
-
+                foreach($options as $op=>$key)
+                    $code=$key['content'];
+           
                 if ($result === FALSE) {
                     echo "Нет связи с свервером скриптов";
                 } else if (strlen($result) == 0) {
-                  Begin::model()->nextStep();
+                  Begin::model()->nextStep($code);
+
                     //сделать запись кода пользователя                    
                     echo "Отличное начало. Продолжай в том же духе!";
                     
@@ -83,6 +86,7 @@ class BeginController extends Controller {
         if ($exercise != NULL) {
             if ($exercise <= Yii::app()->user->isProgressChar() + 1) {
                 $model = Begin::model();
+                //$content=$model->getMyAnswer($exercise);
                 $this->render('exercise', array('model' => $model));
             } else {
                 echo "Это задание еще не открыто";
