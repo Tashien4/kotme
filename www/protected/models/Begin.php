@@ -59,9 +59,21 @@ public function nextStep() {
 	$id=Yii::app()->user->id;
 	$command=Yii::app()->db->createCommand("
 			update users
-			set character_rep+=1,progerss+=1
+			set character_rep=character_rep+1,progerss=progerss+1
 			WHERE id=".$id);
 	$command->execute();
+	
+}
+//---------------------------------------
+//---------------------------------------
+public function execJs_forme($tag) {
+$js='<script>
+var t=document.getElementById("'.$tag.'");
+t.style.display="block";
+</script>';
+
+		return ($js);
+	
 }
 //---------------------------------------
 //---------------------------------------

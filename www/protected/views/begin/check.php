@@ -9,11 +9,12 @@ $options = array(
 );
 
 $context = stream_context_create($options);
-$result = file_get_contents('http://0.0.0.0:8080', false, $context);
+$result = file_get_contents('http://127.0.0.1:8888', false, $context);
 
 if ($result === FALSE) {
     /* Handle error */
 } else if (strlen($result) == 0) {
+   
     echo "Отличное начало. Продолжай в том же духе!";
 } else {
     echo $result;

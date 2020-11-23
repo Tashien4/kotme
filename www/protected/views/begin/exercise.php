@@ -79,6 +79,7 @@
         border-radius:10px;
         text-decoration:none;}
 </style>
+<?php $form=$this->beginWidget('CActiveForm');?>
 <?php $exeNum = $_GET["n"];
 echo '<a href="lessons?id='.$exeNum.'" class="btn">Вернуться к лекции</a><br>';?>
 <link rel="stylesheet" href="/kotme/www/codemirror/codemirror.css">
@@ -102,7 +103,7 @@ if ($exeNum != NULL) {
         </div>';
    // echo file_get_contents("protected/exercises/desc" . $exeNum, false, NULL);
     echo "</label>";
-
+    
     echo "<textarea id=\"code\">";
     echo file_get_contents("protected/exercises/code" . $exeNum, false, NULL);
     echo "</textarea>";
@@ -111,5 +112,10 @@ if ($exeNum != NULL) {
 }
 ?>
 
-<div style="text-align:center;"><button id="submit">Отправить</button></div>
+<div style="text-align:center;">
+    <button id="submit">Отправить</button>
+</div>
 <label id="status"></label>
+<?php echo '<a class="btn" id="nextstep" 
+        style="'.((isset($_GET['stat'])>0)?'display:block;':'display:none;').'" href="cart">Далее</a>';?>
+<?php $this->endWidget(); ?>
