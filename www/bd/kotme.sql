@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Ноя 22 2020 г., 21:10
+-- Время создания: Ноя 23 2020 г., 10:01
 -- Версия сервера: 5.7.26
 -- Версия PHP: 7.2.18
 
@@ -106,19 +106,94 @@ CREATE TABLE IF NOT EXISTS `log_edit` (
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=84 DEFAULT CHARSET=utf8;
 
-
--- --------------------------------------------------------
-
 --
--- Структура таблицы `quest_system`
+-- Дамп данных таблицы `log_edit`
 --
 
-DROP TABLE IF EXISTS `quest_system`;
-CREATE TABLE IF NOT EXISTS `quest_system` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `text` varchar(1000) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+INSERT INTO `log_edit` (`id`, `coper`, `key_id`, `obj`, `field`, `newvalue`, `oldvalue`, `osot`) VALUES
+(1, 385, NULL, 'users', 'login', 'tt', '', 'New'),
+(2, 385, NULL, 'users', 'name', 'tashka', '', 'New'),
+(3, 385, NULL, 'users', 'password', '00b663db02a0497bb4f8758419ef3f44dccaee72', '', 'New'),
+(4, 385, NULL, 'users', 'id', NULL, '9999999', 'New'),
+(5, 385, NULL, 'users', 'login', 'tt', '', 'New'),
+(6, 385, NULL, 'users', 'name', 'tashka', '', 'New'),
+(7, 385, NULL, 'users', 'password', '00b663db02a0497bb4f8758419ef3f44dccaee72', '', 'New'),
+(8, 385, NULL, 'users', 'id', NULL, '9999999', 'New'),
+(9, 385, NULL, 'users', 'login', 'tt', '', NULL),
+(10, 385, NULL, 'users', 'name', 'tashka', '', NULL),
+(11, 385, NULL, 'users', 'password', '00b663db02a0497bb4f8758419ef3f44dccaee72', '', NULL),
+(12, 385, NULL, 'users', 'login', 'tt', '', 'New'),
+(13, 385, NULL, 'users', 'name', 'tashka', '', 'New'),
+(14, 385, NULL, 'users', 'password', '00b663db02a0497bb4f8758419ef3f44dccaee72', '', 'New'),
+(15, 385, NULL, 'users', 'id', NULL, '9999999', 'New'),
+(16, 385, NULL, 'users', 'login', 'tt', '', NULL),
+(17, 385, NULL, 'users', 'name', 'tashka', '', NULL),
+(18, 385, NULL, 'users', 'password', '00b663db02a0497bb4f8758419ef3f44dccaee72', '', NULL),
+(19, 385, NULL, 'users', 'login', 'tt', '', 'New'),
+(20, 385, NULL, 'users', 'name', 'tashka', '', 'New'),
+(21, 385, NULL, 'users', 'password', '00b663db02a0497bb4f8758419ef3f44dccaee72', '', 'New'),
+(22, 385, NULL, 'users', 'lastlogin', '2020-11-16 18:36:32', '', 'New'),
+(23, 385, NULL, 'users', 'id', NULL, '9999999', 'New'),
+(24, 385, NULL, 'users', 'login', 'tt', '', NULL),
+(25, 385, NULL, 'users', 'name', 'tashka', '', NULL),
+(26, 385, NULL, 'users', 'password', '00b663db02a0497bb4f8758419ef3f44dccaee72', '', NULL),
+(27, 385, NULL, 'users', 'lastlogin', '2020-11-16 18:36:32', '', NULL),
+(28, 385, NULL, 'users', 'login', 'tt', '', 'New'),
+(29, 385, NULL, 'users', 'name', 'tashka', '', 'New'),
+(30, 385, NULL, 'users', 'password', '00b663db02a0497bb4f8758419ef3f44dccaee72', '', 'New'),
+(31, 385, NULL, 'users', 'lastlogin', '2020-11-16 18:37:09', '', 'New'),
+(32, 385, NULL, 'users', 'id', NULL, '9999999', 'New'),
+(33, 385, NULL, 'users', 'login', 'tt', '', NULL),
+(34, 385, NULL, 'users', 'name', 'tashka', '', NULL),
+(35, 385, NULL, 'users', 'password', '00b663db02a0497bb4f8758419ef3f44dccaee72', '', NULL),
+(36, 385, NULL, 'users', 'lastlogin', '2020-11-16 18:37:09', '', NULL),
+(37, 385, NULL, 'users', 'login', 'tt', '', 'New'),
+(38, 385, NULL, 'users', 'name', 'tashka', '', 'New'),
+(39, 385, NULL, 'users', 'password', '00b663db02a0497bb4f8758419ef3f44dccaee72', '', 'New'),
+(40, 385, NULL, 'users', 'lastlogin', '2020-11-16 18:37:18', '', 'New'),
+(41, 385, NULL, 'users', 'id', NULL, '9999999', 'New'),
+(42, 385, NULL, 'users', 'login', 'tt', '', NULL),
+(43, 385, NULL, 'users', 'name', 'tashka', '', NULL),
+(44, 385, NULL, 'users', 'password', '00b663db02a0497bb4f8758419ef3f44dccaee72', '', NULL),
+(45, 385, NULL, 'users', 'lastlogin', '2020-11-16 18:37:18', '', NULL),
+(46, 385, NULL, 'users', 'login', 'tt', '', 'New'),
+(47, 385, NULL, 'users', 'name', 'tashka', '', 'New'),
+(48, 385, NULL, 'users', 'password', '00b663db02a0497bb4f8758419ef3f44dccaee72', '', 'New'),
+(49, 385, NULL, 'users', 'lastlogin', '2020-11-16 18:37:53', '', 'New'),
+(50, 385, NULL, 'users', 'id', NULL, '9999999', 'New'),
+(51, 385, NULL, 'users', 'login', 'tt', '', NULL),
+(52, 385, NULL, 'users', 'name', 'tashka', '', NULL),
+(53, 385, NULL, 'users', 'password', '00b663db02a0497bb4f8758419ef3f44dccaee72', '', NULL),
+(54, 385, NULL, 'users', 'lastlogin', '2020-11-16 18:37:53', '', NULL),
+(55, 385, NULL, 'users', 'login', 'tt', '', 'New'),
+(56, 385, NULL, 'users', 'name', 'tashka', '', 'New'),
+(57, 385, NULL, 'users', 'password', '00b663db02a0497bb4f8758419ef3f44dccaee72', '', 'New'),
+(58, 385, NULL, 'users', 'lastlogin', '2020-11-16 18:38:07', '', 'New'),
+(59, 385, NULL, 'users', 'id', NULL, '9999999', 'New'),
+(60, 385, NULL, 'users', 'login', 'tt', '', NULL),
+(61, 385, NULL, 'users', 'name', 'tashka', '', NULL),
+(62, 385, NULL, 'users', 'password', '00b663db02a0497bb4f8758419ef3f44dccaee72', '', NULL),
+(63, 385, NULL, 'users', 'lastlogin', '2020-11-16 18:38:07', '', NULL),
+(64, 385, NULL, 'users', 'login', 'tt', '', 'New'),
+(65, 385, NULL, 'users', 'name', 'tashka', '', 'New'),
+(66, 385, NULL, 'users', 'password', '00b663db02a0497bb4f8758419ef3f44dccaee72', '', 'New'),
+(67, 385, NULL, 'users', 'lastlogin', '2020-11-16 18:41:05', '', 'New'),
+(68, 385, NULL, 'users', 'id', NULL, '9999999', 'New'),
+(69, 385, NULL, 'users', 'login', 'tt', '', NULL),
+(70, 385, NULL, 'users', 'name', 'tashka', '', NULL),
+(71, 385, NULL, 'users', 'password', '00b663db02a0497bb4f8758419ef3f44dccaee72', '', NULL),
+(72, 385, NULL, 'users', 'lastlogin', '2020-11-16 18:41:05', '', NULL),
+(73, 387, NULL, 'users', 'login', 'tt', '', 'New'),
+(74, 387, NULL, 'users', 'name', 'tashka', '', 'New'),
+(75, 387, NULL, 'users', 'email', 'ttt@ya.ru', '', 'New'),
+(76, 387, NULL, 'users', 'password', '00b663db02a0497bb4f8758419ef3f44dccaee72', '', 'New'),
+(77, 387, NULL, 'users', 'lastlogin', '2020-11-16 18:43:30', '', 'New'),
+(78, 387, NULL, 'users', 'id', NULL, '9999999', 'New'),
+(79, 387, NULL, 'users', 'login', 'tt', '', NULL),
+(80, 387, NULL, 'users', 'name', 'tashka', '', NULL),
+(81, 387, NULL, 'users', 'email', 'ttt@ya.ru', '', NULL),
+(82, 387, NULL, 'users', 'password', '00b663db02a0497bb4f8758419ef3f44dccaee72', '', NULL),
+(83, 387, NULL, 'users', 'lastlogin', '2020-11-16 18:43:30', '', NULL);
 
 -- --------------------------------------------------------
 
@@ -153,7 +228,7 @@ CREATE TABLE IF NOT EXISTS `task` (
 --
 
 INSERT INTO `task` (`id`, `text`, `task`) VALUES
-(1, ' Этот остров довольно большой, и у нас есть только карта.\r\nНужно разобратся как же нам здесь ориентироваться.\r\n\r\n', 'Давайте вспомним как мы проходили азы в школе и познакомимся с нашим помощником Котлином.\r\n\r\nВыведите в консоль привет Котлин!'),
+(1, ' Этот остров довольно большой, и у нас есть только карта.\r\nНужно разобратся как же нам здесь ориентироваться.\r\n\r\n', 'Давайте вспомним как мы проходили азы в школе и познакомимся с нашим помощником Котлином.\r\n\r\nВыведите в консоль \"Привет Котлин!\"'),
 (2, ' Нам придется оценить расстояние по карте, поэтому давайте придумаем как это сделать.\r\n', 'Напишите функцию, которая будет брать 4 аргумента: x1, y1, x2, y2 и вычислять расстояние между точками. Первая и вторая точки заданы как (x1, y1), (x2, y2). Аргументы и результат функции должны иметь тип Float.\r\n'),
 (3, 'В инструкции сказано пройти 43 шага прямо, 81 шаг вправо, затем идите вперед до зеленого камня. Ох уж эти картографы... А вдруг мы собьемся со счета? Давайте доверемся Котлину, он за нас все посчитает!\r\n', 'Напишите две функции, одна из которых считает и выводит количество пройденных шагов, а вторая выдает результат когда мы дошли до цели. Первая функция принимает один целочисленный аргумент и выводит в консоль с каждой новой строки, например \"Шаг 1 идем далее\", \"Шаг 2 последний\". Вторая функция принимает на вход лямбду, проверяющую достигли ли мы цели на данном шаге или нет.'),
 (4, 'На этом острове нам придется переправиться через озеро, поэтому нам потребуется плот. Для его создания нам нужно определиться с необходимыми материалами. Для плота нужны 8 бревен и 20 лоз.\r\nА еще хочется что-нибудь пожарить. 5 штук рыбы и 2 кокоса вполне хватит. И нам нужно будет проверить имеется ли у нас всё необходимое.\r\n', 'Создайте функцию-расширение, которая выводит слово \"плот\", если среди предметов достаточно материалов для плота и слово \"обед\", если хватает еды. Назовите функцию checkCrafting. Функция будет вызываться по списку, представляющему имающиеся предметы. А результат должен быть в виде списка из предметов, которые можно создать из того что у нас есть.'),
@@ -189,7 +264,29 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` (`id`, `email`, `lastlogin`, `login`, `name`, `password`, `progerss`, `character_rep`, `usersadmin`) VALUES
-(1, '25', '2020-11-22 21:57:50', 't.s.', 'Самарина Т.С.', 'e4ff36ede472fb9b355b74efc8a450b684139b10', 0, 0, 1);
+(1, '25', '2020-11-23 11:17:52', 't.s.', 'Самарина Т.С.', 'e4ff36ede472fb9b355b74efc8a450b684139b10', 1, 1, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `user_code`
+--
+
+DROP TABLE IF EXISTS `user_code`;
+CREATE TABLE IF NOT EXISTS `user_code` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NOT NULL,
+  `task` int(11) NOT NULL,
+  `code` text NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+--
+-- Дамп данных таблицы `user_code`
+--
+
+INSERT INTO `user_code` (`id`, `user_id`, `task`, `code`) VALUES
+(1, 1, 1, 'fun main() {\n    println(\"Привет Котлин!\");\n}\n\n');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
