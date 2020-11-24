@@ -78,33 +78,36 @@ public function nextStep($code) {
 	 $content = str_replace('+',' ', $content[1]);
      $code=rawurldecode($content);
 	
-	$command=Yii::app()->db->createCommand("
+	$step1=Yii::app()->db->createCommand("
 			SELECT if((progerss+1)>".$task.",1,0) as stat
 			FROM users
 			WHERE id=".$id);
-	$urecords = $command->queryRow();
+	$s1 = $step1->queryRow();
 
-	if($urecords['stat']==0)
-		$command=Yii::app()->db->createCommand("
+	if($s1['stat']==0){
+
+		$step2=Yii::app()->db->createCommand("
 			update users
 			set character_rep=character_rep+1,progerss=progerss+1
 			WHERE id=".$id);
-		$command->execute();
+		$step2->execute();
+	};
 	
-	$command=Yii::app()->db->createCommand("
+	$step3=Yii::app()->db->createCommand("
 			SELECT id
 			FROM user_code
 			WHERE user_id=".$id." and task=".$task." and code like '".$code."'");
-	$urecords = $command->queryRow();
-	if($urecords['id']!='')
-		$command=Yii::app()->db->createCommand("
+	$s3 = $step3->queryRow();
+	if($s3['id']!='') 
+		$step4=Yii::app()->db->createCommand("
 			update user_code
 			set code='".$code."'
-			WHERE id=".$urecords['id']);
-	else 	$command=Yii::app()->db->createCommand("
+			WHERE id=".$s3['id']);
+	else 	$step4=Yii::app()->db->createCommand("
 					insert into user_code (user_id,code,task)
 					values (".$id.",'".$code."','".$task."')");
-			$command->execute();
+
+	$step4->execute();
 	
 }
 //---------------------------------------

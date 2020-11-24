@@ -6,16 +6,20 @@
     padding: 10px;
     margin: 0px;
     width: 100%;
-    background: #f7c306;
-    border: 10px outset #ffd765; }
+     }
 footer{  display:flex;
-  
+  width: 100%;
     position: fixed; 
-    
+    background: #EEC047;
+    border: 10px outset #FFDC82;
     left: 0; bottom: 0;}
    
-    #character{border-radius:100px;border:10px solid yellow; background: #eccf3c;}
-.text{text-align:center;width:60%;
+    #character{
+      border-radius:100px;
+      border:10px solid #FFDC82;
+      background: #F8A446;}
+.text{text-align:center;
+  width:60%;
 	position: fixed;
     top: 60%;
     left: 50%;   
