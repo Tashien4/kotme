@@ -142,7 +142,7 @@ $form=$this->beginWidget('CActiveForm', array(
 	<img src='/kotme/www/images/for_game/crab_idle.gif' width=80%/>
 </div>
 <div style="position: fixed;left: 50%; z-index:-2;"> 
-	<img src='/kotme/www/images/for_game/idle.gif' />
+	<img src='/kotme/www/images/for_game/around.gif' />
 </div>
 
 <?php $this->endWidget(); ?>

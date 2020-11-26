@@ -35,7 +35,7 @@ footer{  display:flex;
     </style>
 <?php $form=$this->beginWidget('CActiveForm');?>
     <div>
-    <img src='/kotme/www/images/for_game/map3.png' />
+    <img src='/kotme/www/images/for_game/map/0.png' />
     </div>
 <footer> 
   <div class="char">

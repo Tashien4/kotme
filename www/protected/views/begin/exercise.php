@@ -91,7 +91,9 @@
 echo '<a href="lessons?id='.$exeNum.'" class="btn" style="font-size: 15px !important;">Вернуться к лекции</a><br>';?>
 <link rel="stylesheet" href="/kotme/www/codemirror/codemirror.css">
 <link rel="stylesheet" href="/kotme/www/codemirror/darcula.css">
+<link rel="stylesheet" href="/kotme/www/css/modal.css">
 <script src="/kotme/www/js/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="/kotme/www/js/modal.js"></script>
 <script type="text/javascript" src="/kotme/www/codemirror/codemirror.js"></script>
 <script type="text/javascript" src="/kotme/www/codemirror/clike.js"></script>
 <script type="text/javascript" src="/kotme/www/js/exercise.js"></script>
@@ -125,13 +127,24 @@ if ($exeNum != NULL) {
 <?php echo '<a class="btn" id="nextstep" 
         style="display:none;" href="cart">Далее</a>';?>
 
-</div><?php $this->endWidget(); ?>
+</div>
+<?php $this->endWidget(); ?>
 <script>
     $(document).ready(function(){
     $('#status').bind('DOMSubtreeModified', function(){
         var txt = $('#status').text();
-        if(txt=="Отличное начало. Продолжай в том же духе!")
+        if(txt=="Отличное начало. Продолжай в том же духе!") {
   document.getElementById("nextstep").style.display = "inline-block";
+  showMod();
+
+};
     });
 });
 </script>
+<script>
+        function showMod() {
+            // создаём модальное окно
+            var modal = $modal();
+                modal.show();
+        };
+    </script>
