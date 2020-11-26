@@ -23,6 +23,9 @@ $(document).ready(function () {
             }),
             success: (function (data, textStatus, jqXHR) {
                 $("#status").text(data);
+            }),
+            error: (function (jqXHR, textStatus, errorThrown) {
+                $("#status").text("Ошибка сервера");
             })
         });
 

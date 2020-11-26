@@ -34,7 +34,7 @@
     .text{  
         background: #FFDC82;
         display:flex;
-        }
+    }
     .task{
         background: #FFD4A4;
     }
@@ -86,9 +86,10 @@
     border-radius: 10px;
     text-decoration: none;}*/
 </style>
-<?php $form=$this->beginWidget('CActiveForm');?>
+<?php $form = $this->beginWidget('CActiveForm'); ?>
 <?php $exeNum = $_GET["n"];
-echo '<a href="lessons?id='.$exeNum.'" class="btn" style="font-size: 15px !important;">Вернуться к лекции</a><br>';?>
+echo '<a href="lessons?id=' . $exeNum . '" class="btn" style="font-size: 15px !important;">Вернуться к лекции</a><br>';
+?>
 <link rel="stylesheet" href="/kotme/www/codemirror/codemirror.css">
 <link rel="stylesheet" href="/kotme/www/codemirror/darcula.css">
 <link rel="stylesheet" href="/kotme/www/css/modal.css">
@@ -101,50 +102,56 @@ echo '<a href="lessons?id='.$exeNum.'" class="btn" style="font-size: 15px !impor
 <?php
 if ($exeNum != NULL) {
     echo "<label id=\"desc\">";
-    $text= $model->giveMeLesson($exeNum);
-   echo '<div class="text">
-                <div style="width: 100%;">'.$text['text'].'</div>
+    $text = $model->giveMeLesson($exeNum);
+    echo '<div class="text">
+                <div style="width: 100%;">' . $text['text'] . '</div>
                 <img src="/kotme/www/images/for_game/icon.png"/>
          </div>
          <div class="task">
-            <h4>Задание '.$exeNum.'</h4>
-            '.$text['task'].'
+            <h4>Задание ' . $exeNum . '</h4>
+            ' . $text['task'] . '
         </div>';
-   // echo file_get_contents("protected/exercises/desc" . $exeNum, false, NULL);
+    // echo file_get_contents("protected/exercises/desc" . $exeNum, false, NULL);
     echo "</label>";
-    
+
     echo "<textarea id=\"code\">";
-    echo file_get_contents("protected/exercises/code" . $exeNum, false, NULL);
+    $code = $model->getMyAnswer($exeNum);
+    if (strlen($code) > 0) {
+        echo $code;
+    } else {
+        echo file_get_contents("protected/exercises/code" . $exeNum, false, NULL);
+    }
     echo "</textarea>";
 } else {
     echo "Номер задачи не указан";
 }
-
 ?>
 <div style="text-align:center;">
     <button id="submit" class="btn">Отправить</button>
-<label id="status"></label>
-<?php echo '<a class="btn" id="nextstep" 
-        style="display:none;" href="cart">Далее</a>';?>
+    <label id="status"></label>
+    <?php echo '<a class="btn" id="nextstep" 
+        style="display:none;" href="cart">Далее</a>'; ?>
 
 </div>
 <?php $this->endWidget(); ?>
 <script>
-    $(document).ready(function(){
-    $('#status').bind('DOMSubtreeModified', function(){
-        var txt = $('#status').text();
-        if(txt=="Отличное начало. Продолжай в том же духе!") {
-  document.getElementById("nextstep").style.display = "inline-block";
-  showMod();
+    $(document).ready(function () {
+        $('#status').bind('DOMSubtreeModified', function () {
+            var txt = $('#status').text();
+            if (txt == "Отличное начало. Продолжай в том же духе!") {
+                document.getElementById("nextstep").style.display = "inline-block";
+                showMod();
 
-};
+            }
+            ;
+        });
     });
-});
 </script>
 <script>
-        function showMod() {
-            // создаём модальное окно
-            var modal = $modal();
-                modal.show();
-        };
-    </script>
+    function showMod() {
+        // создаём модальное окно
+        var modal = $modal();
+        modal.show();
+    }
+    ;
+</script>
