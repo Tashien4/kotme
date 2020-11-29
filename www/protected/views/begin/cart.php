@@ -1,5 +1,6 @@
 <style>
-#newfon{background-size: cover;    z-index: -2;}
+#newfon{background-size: cover;    
+  z-index: -2;}
 .char{font-size: 20px;
     font-weight: bold;
     text-align: center;
@@ -18,17 +19,7 @@ footer{  display:flex;
       border-radius:100px;
       border:10px solid #FFDC82;
       background: #F8A446;}
-.text{text-align:center;
-  width:60%;
-	position: fixed;
-    top: 60%;
-    left: 50%;   
-    height:300px;
-      -webkit-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    -o-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    }
+
     div{text-align:center;}
     p{text-shadow: 2px 2px #a97311; color: #211603;    font-size: 30px;}
 

@@ -1,25 +1,28 @@
 <?php $this->pageTitle=Yii::app()->name . ' - Login';?>
 <style>
+    .flex{
+          		display:flex;
+              		align-items: center;
+              		justify-content: center;
+          	}
+
    .paper {
         background: url("/kotme/www/images/for_game/paper.png") no-repeat;
         background-size: contain;
         background-repeat: no-repeat;
-        padding: 50px;
-
-        margin: 0;
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
-        text-align: center;
+        width:701px;
+              		height:510px;
+              		text-align: center;
+              		margin-top:25px;
     }
     .text{ 
         font-size: 20px;
-    padding: 40px;
-    font-weight: bold;
-    text-align: center;
-    margin: 20px;
-    line-height: 150%;  margin-top: -60px;
+              		margin:auto;
+              		margin-top:13%;
+    			font-weight: normal;
+    			line-height: 150%;   
+                      width: 70%;
+                      font-weight:bold;
        }
     #btn {margin:10px;}
     #btn a{
@@ -31,7 +34,7 @@
     background: #D59F13;
     color: white;}
 </style>
-
+<div class="flex">
     <div class="paper">
         
         <div class="text">
@@ -43,9 +46,7 @@
            расшифровать карту и найти сокровища. 
            Двигайся по карте острова, решая задачи по Kotlin,
            ищи подсказки и доберись до сокровищ.
-         </div>  
+         </div> <br><Br> 
 	    <div id="btn"><a href="/kotme/www/index.php/begin/cart">Далее</a></div>
-			
-			
-        </div>	
+    </div>	
 </div>

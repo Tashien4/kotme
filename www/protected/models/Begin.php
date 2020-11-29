@@ -104,13 +104,13 @@ class Begin extends Activerecordlog {
         $id = Yii::app()->user->id; // user id
         
         $this->saveCode();
-
+        $this->giveMeAchivment($exercise);
         $step1 = Yii::app()->db->createCommand("
 			SELECT if((progerss+1)>" . $exercise . ",1,0) as stat
 			FROM users
 			WHERE id=" . $id);
         $s1 = $step1->queryRow();
-
+        
         if ($s1['stat'] == 0) {
             $step2 = Yii::app()->db->createCommand("
 			update users
@@ -119,6 +119,51 @@ class Begin extends Activerecordlog {
             $step2->execute();
         };
     }
+
+//---------------------------------------
+public function giveMeAchivment($id){
+    $user_id = Yii::app()->user->id;
+    if($id==10) $nom=5;
+        elseif($id==9)  $nom=4;
+        elseif($id==5)  $nom=3;
+        elseif($id>1)  $nom=2;
+        else  $nom=1;
+    $sql = Yii::app()->db->createCommand("
+        SELECT *
+        FROM user_achivment
+        where user_id=".$user_id." and achiv_id=".$nom);
+    $row = $sql->queryRow();
+    
+    if($row['id']=='') {
+        $ss = Yii::app()->db->createCommand("
+        insert user_achivment(user_id,achiv_id,date)
+        values(".$user_id.",".$nom.",'".date('Y-m-d H:i:s')."')");
+        $ss->execute();
+    }
+
+}
+//---------------------------------------
+public function giveMeAllAch() {
+    //$id=Yii::app()->user->isProgressChar()+1;
+    $command = Yii::app()->db->createCommand("
+        SELECT *
+        FROM achivment
+        ");
+    $urecords = $command->queryAll();
+    return $urecords;
+}
+
+//---------------------------------------
+//---------------------------------------
+public function My_Ach($nom) {
+    $id=Yii::app()->user->id;
+    $command = Yii::app()->db->createCommand("
+        SELECT if(id=".$nom.",1,0) as yes
+        FROM user_achivment
+        where user_id=".$id);
+    $urecords = $command->queryRow();
+    return $urecords['yes'];
+}
 
 //---------------------------------------
 //---------------------------------------
