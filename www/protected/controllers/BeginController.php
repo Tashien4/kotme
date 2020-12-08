@@ -74,7 +74,7 @@ class BeginController extends Controller {
                         $resultJson->message = "Отличное начало. Продолжай в том же духе!";
                         echo json_encode($resultJson);
                     } else {
-                        echo $resultJson;
+                        echo $result;
                     }
                 }
             } else {
