@@ -62,26 +62,26 @@ class Begin extends Activerecordlog {
 			FROM user_code
 			WHERE user_id=" . $id_u . " and task=" . $id);
         $urecords = $command->queryRow();
-        
+
         if ($urecords != NULL) {
             return $urecords["code"];
         } else {
             return "";
         }
     }
-    
+
     // with parameters from post
     public function saveCode() {
         // https://stackoverflow.com/questions/19767894/warning-do-not-access-superglobal-post-array-directly-on-netbeans-7-4-for-ph
         $exercise = filter_input(INPUT_POST, 'exercise'); // номер упражнения
         $code = filter_input(INPUT_POST, 'code'); // исходный код, введеный пользователем
         $id = Yii::app()->user->id; // user id
-        
+
         $savedCodeQuery = Yii::app()->db->createCommand();
-        
+
         $savedCodeQuery->select("*")->from("user_code")->where("user_id=" . $id . " and task=" . $exercise);
         $savedCode = $savedCodeQuery->queryRow();
-        
+
         if ($savedCode != NULL) {
             $saveCodeQuery = Yii::app()->db->createCommand("
 			update user_code
@@ -102,7 +102,7 @@ class Begin extends Activerecordlog {
     public function nextStep() {
         $exercise = filter_input(INPUT_POST, 'exercise'); // номер упражнения
         $id = Yii::app()->user->id; // user id
-        
+
         $this->saveCode();
         $this->giveMeAchivment($exercise);
         $step1 = Yii::app()->db->createCommand("
@@ -110,7 +110,7 @@ class Begin extends Activerecordlog {
 			FROM users
 			WHERE id=" . $id);
         $s1 = $step1->queryRow();
-        
+
         if ($s1['stat'] == 0) {
             $step2 = Yii::app()->db->createCommand("
 			update users
@@ -121,49 +121,56 @@ class Begin extends Activerecordlog {
     }
 
 //---------------------------------------
-public function giveMeAchivment($id){
-    $user_id = Yii::app()->user->id;
-    if($id==10) $nom=5;
-        elseif($id==9)  $nom=4;
-        elseif($id==5)  $nom=3;
-        elseif($id>1)  $nom=2;
-        else  $nom=1;
-    $sql = Yii::app()->db->createCommand("
+    public function giveMeAchivment($id) {
+        $user_id = Yii::app()->user->id;
+        
+        if ($id == 10)
+            $nom = 5;
+        else if ($id == 9)
+            $nom = 4;
+        elseif ($id == 5)
+            $nom = 3;
+        elseif ($id > 1)
+            $nom = 2;
+        else
+            $nom = 1;
+        
+        $sql = Yii::app()->db->createCommand("
         SELECT *
         FROM user_achivment
-        where user_id=".$user_id." and achiv_id=".$nom);
-    $row = $sql->queryRow();
-    
-    if($row['id']=='') {
-        $ss = Yii::app()->db->createCommand("
-        insert user_achivment(user_id,achiv_id,date)
-        values(".$user_id.",".$nom.",'".date('Y-m-d H:i:s')."')");
-        $ss->execute();
+        where user_id=" . $user_id . " and achiv_id=" . $nom);
+        $row = $sql->queryRow();
+
+        if ($row == false) {
+            $ss = Yii::app()->db->createCommand("
+                insert user_achivment(user_id,achiv_id,date)
+                values(" . $user_id . "," . $nom . ",'" . date('Y-m-d H:i:s') . "')");
+            $ss->execute();
+        }
     }
 
-}
 //---------------------------------------
-public function giveMeAllAch() {
-    //$id=Yii::app()->user->isProgressChar()+1;
-    $command = Yii::app()->db->createCommand("
+    public function giveMeAllAch() {
+        //$id=Yii::app()->user->isProgressChar()+1;
+        $command = Yii::app()->db->createCommand("
         SELECT *
         FROM achivment
         ");
-    $urecords = $command->queryAll();
-    return $urecords;
-}
+        $urecords = $command->queryAll();
+        return $urecords;
+    }
 
 //---------------------------------------
 //---------------------------------------
-public function My_Ach($nom) {
-    $id=Yii::app()->user->id;
-    $command = Yii::app()->db->createCommand("
-        SELECT if(id=".$nom.",1,0) as yes
+    public function My_Ach($nom) {
+        $id = Yii::app()->user->id;
+        $command = Yii::app()->db->createCommand("
+        SELECT if(id=" . $nom . ",1,0) as yes
         FROM user_achivment
-        where user_id=".$id);
-    $urecords = $command->queryRow();
-    return $urecords['yes'];
-}
+        where user_id=" . $id);
+        $urecords = $command->queryRow();
+        return $urecords['yes'];
+    }
 
 //---------------------------------------
 //---------------------------------------
