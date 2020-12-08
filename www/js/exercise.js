@@ -22,7 +22,9 @@ $(document).ready(function () {
                 exercise: getExerciseNum()
             }),
             success: (function (data, textStatus, jqXHR) {
-                $("#status").text(data);
+                var json = JSON.parse(data);
+                $("#status").text(json["message"]);
+                console.log(json["console"])
             }),
             error: (function (jqXHR, textStatus, errorThrown) {
                 $("#status").text("Ошибка сервера");

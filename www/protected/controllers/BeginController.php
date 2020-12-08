@@ -1,5 +1,10 @@
 <?php
 
+const TestsSuccess = 1;
+const ExecutionErrors = 2;
+const TestsFail = 3;
+const ServerError = 4;
+
 class BeginController extends Controller {
 
     public $layout = '//layouts/column1';
@@ -58,13 +63,19 @@ class BeginController extends Controller {
 
                 if ($result === FALSE) {
                     echo "Нет связи с свервером скриптов";
-                } else if (strlen($result) == 0) {
-                    Begin::model()->nextStep();
-
-                    //сделать запись кода пользователя                    
-                    echo "Отличное начало. Продолжай в том же духе!";
                 } else {
-                    echo $result;
+                    $resultJson = json_decode($result);
+                    
+                    if ($resultJson->status == TestsSuccess) {
+                        Begin::model()->nextStep();
+
+                        //сделать запись кода пользователя
+                        
+                        $resultJson->message = "Отличное начало. Продолжай в том же духе!";
+                        echo json_encode($resultJson);
+                    } else {
+                        echo $resultJson;
+                    }
                 }
             } else {
                 echo "Это задание еще не открыто";
