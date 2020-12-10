@@ -34,6 +34,7 @@
     .text{  
         background: #FFDC82;
         display:flex;
+        
     }
     .task{
         background: #FFD4A4;
@@ -75,16 +76,7 @@
         background: #F8A446;
         border-radius: 130px 117px 0px 0px;
     }
-    /*.btn{background: #FFC107;
-    padding: 10px;
-    font-weight: bold;
-    font-size: 24px;
-    line-height: 28px;
-    width: 20%;
-    text-align: center;
-    
-    border-radius: 10px;
-    text-decoration: none;}*/
+
 </style>
 <?php $form = $this->beginWidget('CActiveForm'); ?>
 <?php $exeNum = $_GET["n"];
@@ -104,7 +96,7 @@ if ($exeNum != NULL) {
     echo "<label id=\"desc\">";
     $text = $model->giveMeLesson($exeNum);
     echo '<div class="text">
-                <div style="width: 100%;">' . $text['text'] . '</div>
+                <div style="width: 100%;"><br>' . $text['text'] . '</div>
                 <img src="/kotme/www/images/for_game/icon.png"/>
          </div>
          <div class="task">
