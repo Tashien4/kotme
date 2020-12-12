@@ -1,5 +1,15 @@
 <?php
 
+const TestsSuccess = 1;
+const ExecutionErrors = 2;
+const TestsFail = 3;
+const ServerError = 4;
+
+/**
+ * Main model
+ *
+ * @author tashien, zeganstyl
+ */
 class Begin extends Activerecordlog {
 
 //---------------------------------------
@@ -71,12 +81,7 @@ class Begin extends Activerecordlog {
     }
 
     // with parameters from post
-    public function saveCode() {
-        // https://stackoverflow.com/questions/19767894/warning-do-not-access-superglobal-post-array-directly-on-netbeans-7-4-for-ph
-        $exercise = filter_input(INPUT_POST, 'exercise'); // номер упражнения
-        $code = filter_input(INPUT_POST, 'code'); // исходный код, введеный пользователем
-        $id = Yii::app()->user->id; // user id
-
+    public function saveCode($exercise, $code, $id) {
         $savedCodeQuery = Yii::app()->db->createCommand();
 
         $savedCodeQuery->select("*")->from("user_code")->where("user_id=" . $id . " and task=" . $exercise);
@@ -97,14 +102,37 @@ class Begin extends Activerecordlog {
             ));
         }
     }
+    
+    public function checkExercise($exercise, $code, $id) {
+        $options = array(
+            'http' => array(
+                'header' => "Content-type: application/x-www-form-urlencoded\r\n",
+                'method' => 'POST',
+                'content' => http_build_query($_POST)
+            )
+        );
+
+        $context = stream_context_create($options);
+        $result = file_get_contents('http://127.0.0.1:8888', false, $context);
+        
+        $resultJson = json_decode($result);
+
+        if ($resultJson->status == TestsSuccess) {
+            $this->saveCode($exercise, $code, $id);
+            $this->nextStep($exercise, $id);
+
+            //сделать запись кода пользователя
+
+            $resultJson->message = "Отличное начало. Продолжай в том же духе!";
+            return json_encode($resultJson);
+        } else {
+            return $result;
+        }
+    }
 
 //---------------------------------------
-    public function nextStep() {
-        $exercise = filter_input(INPUT_POST, 'exercise'); // номер упражнения
-        $id = Yii::app()->user->id; // user id
-
-        $this->saveCode();
-        $this->giveMeAchivment($exercise);
+    public function nextStep($exercise, $id) {
+        $this->giveMeAchivment($exercise, $id);
         $step1 = Yii::app()->db->createCommand("
 			SELECT if((progerss+1)>" . $exercise . ",1,0) as stat
 			FROM users
@@ -121,16 +149,14 @@ class Begin extends Activerecordlog {
     }
 
 //---------------------------------------
-    public function giveMeAchivment($id) {
-        $user_id = Yii::app()->user->id;
-        
-        if ($id == 10)
+    public function giveMeAchivment($exercise, $id) {
+        if ($exercise == 10)
             $nom = 5;
-        else if ($id == 9)
+        else if ($exercise == 9)
             $nom = 4;
-        elseif ($id == 5)
+        elseif ($exercise == 5)
             $nom = 3;
-        elseif ($id > 1)
+        elseif ($exercise > 1)
             $nom = 2;
         else
             $nom = 1;
@@ -138,13 +164,13 @@ class Begin extends Activerecordlog {
         $sql = Yii::app()->db->createCommand("
         SELECT *
         FROM user_achivment
-        where user_id=" . $user_id . " and achiv_id=" . $nom);
+        where user_id=" . $id . " and achiv_id=" . $nom);
         $row = $sql->queryRow();
 
         if ($row == false) {
             $ss = Yii::app()->db->createCommand("
                 insert user_achivment(user_id,achiv_id,date)
-                values(" . $user_id . "," . $nom . ",'" . date('Y-m-d H:i:s') . "')");
+                values(" . $id . "," . $nom . ",'" . date('Y-m-d H:i:s') . "')");
             $ss->execute();
         }
     }

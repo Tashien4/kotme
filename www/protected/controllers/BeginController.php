@@ -1,10 +1,10 @@
 <?php
 
-const TestsSuccess = 1;
-const ExecutionErrors = 2;
-const TestsFail = 3;
-const ServerError = 4;
-
+/**
+ * Main controller
+ *
+ * @author tashien, zeganstyl
+ */
 class BeginController extends Controller {
 
     public $layout = '//layouts/column1';
@@ -46,46 +46,26 @@ class BeginController extends Controller {
 //---------------------------------------------------------
 
     public function actionCheck() {
-        $exercise = $_POST["exercise"];
-
-        if ($exercise != NULL) {
-            if ($exercise <= Yii::app()->user->isProgressChar() + 1) {
-                $options = array(
-                    'http' => array(
-                        'header' => "Content-type: application/x-www-form-urlencoded\r\n",
-                        'method' => 'POST',
-                        'content' => http_build_query($_POST)
-                    )
-                );
-
-                $context = stream_context_create($options);
-                $result = file_get_contents('http://127.0.0.1:8888', false, $context);
-
-                if ($result === FALSE) {
-                    echo "Нет связи с свервером скриптов";
-                } else {
-                    $resultJson = json_decode($result);
-                    
-                    if ($resultJson->status == TestsSuccess) {
-                        Begin::model()->nextStep();
-
-                        //сделать запись кода пользователя
-                        
-                        $resultJson->message = "Отличное начало. Продолжай в том же духе!";
-                        echo json_encode($resultJson);
-                    } else {
-                        echo $result;
-                    }
-                }
-            } else {
-                echo "Это задание еще не открыто";
-            }
-        } else {
+        if (!isset($_POST['exercise'])) {
             echo "Задание не указано";
+            Yii::app()->end();
         }
 
-        // Завершаем приложение
-        Yii::app()->end();
+        if (!isset($_POST['code'])) {
+            echo "Исходный код отсутствует";
+            Yii::app()->end();
+        }
+
+        $exercise = $_POST["exercise"];
+        $code = $_POST["code"];
+        $id = Yii::app()->user->id; // user id
+
+        if ($exercise > Yii::app()->user->isProgressChar() + 1) {
+            echo "Это задание еще не открыто";
+            Yii::app()->end();
+        }
+        
+        echo Begin::model()->checkExercise($exercise, $code, $id);
     }
 
 //---------------------------------------------------------
