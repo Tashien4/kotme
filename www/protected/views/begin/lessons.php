@@ -30,7 +30,9 @@ pre {/*width: 70%;*/
     padding:10px;
     border:1px solid #EF8000;}
 </style>
-
+<link rel="stylesheet" href="/kotme/www/highlight/styles/gruvbox-dark.css">
+<script src="/kotme/www/highlight/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
 <div class="all">
 <div class="frame1">
 <?php $Parsedown = new Parsedown();
