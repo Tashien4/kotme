@@ -1,6 +1,6 @@
 <style>
-div{text-align:center;}
-.all{width:100%;text-align:center; position: relative;}
+/*div{text-align:center;}
+.all{width:100%;text-align:center; position: relative;}*/
 .btn{background:#D59F13;
 padding:10px;
 font-weight: bold;
@@ -10,18 +10,18 @@ text-align: center;
 color: #6C461A;
 border-radius:10px;}
 a {text-decoration:none;cursor:pointer;}
+p{text-indent: 1.5em;padding:10px;}
 h4{font-size: 30px;
     font-weight: bold;
-    padding:10px;}
+    padding:10px;text-align:center;}
 .frame1 {background: #FFD4A4;
     width: 70%;
     font-size: 20px;
-    text-align: center;
     left: 0;
     right: 0;
     margin: auto;
  }
-.frame2 {width: 70%;
+pre {/*width: 70%;*/
     background:#252525;
     left: 0;
     right: 0;
@@ -33,19 +33,15 @@ h4{font-size: 30px;
 
 <div class="all">
 <div class="frame1">
-<?php 
-    echo '<h4>'.$model->name.'</h4>
-     <div style="padding: 20px;">'.$model->text.'</div>';?>
-</div>
-<br><Br>
-<div class="frame2">
-<?php echo '<div style=" 
-   text-align: left !important;
-    padding: 20px;
-    font-size: 15px;">'.$model->code.'</div>';?>
+<?php $Parsedown = new Parsedown();
+$filename = $_SERVER['DOCUMENT_ROOT']."/kotme/www/lessons/lesson".$id.".md";
 
-
+$text=file_get_contents($filename);
+    echo '<div style="padding: 20px;">'.$Parsedown->text($text).'</div>';?>
 </div>
+<br>
 <br><Br>
+<div style='text-align:center; position: relative;'>
 <a href="exercise?n=<?php echo $id;?>" class="btn">Перейти к заданию</a>
+</div>
 </div>
