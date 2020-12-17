@@ -9,7 +9,7 @@ session_start();
 
 //echo $_GET['rperiod'];
 
-$dbopts = parse_url(getenv('DATABASE_URL'));
+$dbopts = parse_url(getenv('DATABASE_URL') ? getenv('DATABASE_URL') : "postgresql://postgres:postgres@localhost:5432/kotme");
 
 return array(
     'basePath' => dirname(__FILE__) . DIRECTORY_SEPARATOR . '..',
@@ -53,7 +53,7 @@ return array(
 //        heroku
         'db' => array(
             'connectionString' => 'pgsql:host=' . $dbopts["host"]. ';port=' . $dbopts["port"] . ';dbname=' . ltrim($dbopts["path"],'/'),
-            'user' => $dbopts["user"],
+            'username' => $dbopts["user"],
             'password' => $dbopts["pass"],
             
             'emulatePrepare' => true,
