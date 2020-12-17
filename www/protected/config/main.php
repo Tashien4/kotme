@@ -9,7 +9,6 @@ session_start();
 
 //echo $_GET['rperiod'];
 
-$connectionString = getenv('DATABASE_URL');
 $dbopts = parse_url(getenv('DATABASE_URL'));
 
 return array(
