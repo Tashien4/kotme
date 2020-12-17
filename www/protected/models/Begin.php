@@ -113,7 +113,7 @@ class Begin extends Activerecordlog {
         );
 
         $context = stream_context_create($options);
-        $result = file_get_contents('http://127.0.0.1:8888', false, $context);
+        $result = file_get_contents('https://kotme-script.herokuapp.com/', false, $context);
         
         $resultJson = json_decode($result);
 
