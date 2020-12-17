@@ -3,7 +3,7 @@
         font-size:20px;
         background-size: cover;
         position: relative;
-        background-image: url('/kotme/www/images/for_game/fon.png');
+        background-image: url('/images/for_game/fon.png');
     }
 
     label, textarea, button {
@@ -82,14 +82,14 @@
 <?php $exeNum = $_GET["n"];
 echo '<a href="lessons?id=' . $exeNum . '" class="btn" style="font-size: 15px !important;">Вернуться к лекции</a><br>';
 ?>
-<link rel="stylesheet" href="/kotme/www/codemirror/codemirror.css">
-<link rel="stylesheet" href="/kotme/www/codemirror/darcula.css">
-<link rel="stylesheet" href="/kotme/www/css/modal.css">
-<script src="/kotme/www/js/jquery-1.4.2.min.js"></script>
-<script type="text/javascript" src="/kotme/www/js/modal.js"></script>
-<script type="text/javascript" src="/kotme/www/codemirror/codemirror.js"></script>
-<script type="text/javascript" src="/kotme/www/codemirror/clike.js"></script>
-<script type="text/javascript" src="/kotme/www/js/exercise.js"></script>
+<link rel="stylesheet" href="/codemirror/codemirror.css">
+<link rel="stylesheet" href="/codemirror/darcula.css">
+<link rel="stylesheet" href="/css/modal.css">
+<script src="/js/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="/js/modal.js"></script>
+<script type="text/javascript" src="/codemirror/codemirror.js"></script>
+<script type="text/javascript" src="/codemirror/clike.js"></script>
+<script type="text/javascript" src="/js/exercise.js"></script>
 
 <?php
 if ($exeNum != NULL) {
@@ -97,7 +97,7 @@ if ($exeNum != NULL) {
     $text = $model->giveMeLesson($exeNum);
     echo '<div class="text">
                 <div style="width: 100%;"><br>' . $text['text'] . '</div>
-                <img src="/kotme/www/images/for_game/icon.png"/>
+                <img src="/images/for_game/icon.png"/>
          </div>
          <div class="task">
             <h4>Задание ' . $exeNum . '</h4>

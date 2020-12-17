@@ -4,7 +4,7 @@
 .paper{	background-size: 100%; 
    text-align:center;
    background-size: 100%; 
-    background-image: url('/kotme/www/images/for_game/paper.png');
+    background-image: url('/images/for_game/paper.png');
     position: fixed;
   top: 0;
   left: 0;

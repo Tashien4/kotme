@@ -7,7 +7,7 @@
           	}
 
    .paper {
-        background: url("/kotme/www/images/for_game/paper.png") no-repeat;
+        background: url("/images/for_game/paper.png") no-repeat;
         background-size: contain;
         background-repeat: no-repeat;
         width:701px;
@@ -47,6 +47,6 @@
            Двигайся по карте острова, решая задачи по Kotlin,
            ищи подсказки и доберись до сокровищ.
          </div> <br><Br> 
-	    <div id="btn"><a href="/kotme/www/index.php/begin/cart">Далее</a></div>
+	    <div id="btn"><a href="/index.php/begin/cart">Далее</a></div>
     </div>	
 </div>

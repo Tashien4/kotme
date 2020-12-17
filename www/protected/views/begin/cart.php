@@ -2,7 +2,7 @@
 #newfon{background-size: cover;    
   z-index: -2;}
   .cart {
-   background-image: url("/kotme/www/images/for_game/map/0.png");
+   background-image: url("/images/for_game/map/0.png");
    background-size: contain;
    background-repeat: no-repeat;
 	width: 750px;
@@ -130,7 +130,7 @@ $pr=Yii::app()->user->isProgress()?>
           (($pr>=$i)?'background:rgba(95, 229, 11, 0.5);border-color:#5DB725;':
           ((($pr+1)==$i)?'background:rgba(236, 240, 13, 0.5);
           border-color:#ECF00D;':'display:none;')).'"
-          onclick="window.location.href=\'/kotme/www/index.php/begin/lessons?id='.$i.'\'"
+          onclick="window.location.href=\'/index.php/begin/lessons?id='.$i.'\'"
           ></div>';
       ?>
         </div>
@@ -140,7 +140,7 @@ $pr=Yii::app()->user->isProgress()?>
   <?php echo  CHtml::submitButton('>>>',array('class'=>'btn','name'=>'next'))?>
     </div>
     <div class="icon">
-    <img id="character" src='/kotme/www/images/for_game/Character.png' width=50%/>
+    <img id="character" src='/images/for_game/Character.png' width=50%/>
     </div>
 
 </footer>

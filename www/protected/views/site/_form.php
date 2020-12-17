@@ -9,7 +9,7 @@ input:focus:-ms-input-placeholder { color:transparent; } /* IE 10+ */
     position: fixed;
     top: 25%;
 	left: 30%;
-	background-image: url('/kotme/www/images/for_game/panel.png');
+	background-image: url('/images/for_game/panel.png');
 }
 td{text-align:center;}
 .inside{padding: 5% 10% 0 10%;font-size:20px;text-align: center;}

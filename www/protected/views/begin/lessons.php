@@ -30,13 +30,13 @@ pre {/*width: 70%;*/
     padding:10px;
     border:1px solid #EF8000;}
 </style>
-<link rel="stylesheet" href="/kotme/www/highlight/styles/gruvbox-dark.css">
-<script src="/kotme/www/highlight/highlight.pack.js"></script>
+<link rel="stylesheet" href="/highlight/styles/gruvbox-dark.css">
+<script src="/highlight/highlight.pack.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
 <div class="all">
 <div class="frame1">
 <?php $Parsedown = new Parsedown();
-$filename = $_SERVER['DOCUMENT_ROOT']."/kotme/www/lessons/lesson".$id.".md";
+$filename = $_SERVER['DOCUMENT_ROOT']."/lessons/lesson".$id.".md";
 
 $text=file_get_contents($filename);
     echo '<div style="padding: 20px;">'.$Parsedown->text($text).'</div>';?>

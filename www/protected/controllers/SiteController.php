@@ -236,9 +236,9 @@ print '=================='.$tab.'==================<br/>';
 			if ($model->validate() && $model->login()) {
 				//if ((Yii::app()->user->returnUrl)&&(Yii::app()->user->returnUrl!=='/index.php') ){
 					if (Yii::app()->user->isProgress()>0) {
-						$this->redirect('/kotme/www/index.php/begin/step0');
+						$this->redirect('/index.php/begin/step0');
 					} else {
-						$this->redirect('/kotme/www/index.php/begin/legent'); //Yii::app()->user->returnUrl);
+						$this->redirect('/index.php/begin/legent'); //Yii::app()->user->returnUrl);
 					}
 			}
 		}
@@ -276,7 +276,7 @@ print '=================='.$tab.'==================<br/>';
 			} 
 			// validate user input and redirect to the previous page if valid
 			if($model->validate()) {// && $model->login()) {
-				$this->redirect('/kotme/www/index.php/site/login?log='.$model->login);
+				$this->redirect('/index.php/site/login?log='.$model->login);
 			}
 		}
 		// display the login form

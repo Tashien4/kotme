@@ -3,7 +3,7 @@
       body {
         font-size:20px;
         background-size: cover;
-        background-image: url('/kotme/www/images/for_game/b_3.png');
+        background-image: url('/images/for_game/b_3.png');
     }
 
     input:focus::-webkit-input-placeholder { color:transparent; }
@@ -19,7 +19,7 @@
     }
 
     .menu-container {
-        background-image: url("/kotme/www/images/for_game/panel.png");
+        background-image: url("/images/for_game/panel.png");
         background-size: contain;
         background-repeat: no-repeat;
         width: min-content;
@@ -136,13 +136,13 @@ $form=$this->beginWidget('CActiveForm', array(
          </div>	
     </div>
 <div style="position: fixed; width: 30%; top: 70%;left: 60%;"> 
-	<img src='/kotme/www/images/for_game/crab_hello.gif' width=80%/>
+	<img src='/images/for_game/crab_hello.gif' width=80%/>
 </div>
 <div style="position: fixed;left: 0px;width: 30%;top: 70%;"> 
-	<img src='/kotme/www/images/for_game/crab_idle.gif' width=80%/>
+	<img src='/images/for_game/crab_idle.gif' width=80%/>
 </div>
 <div style="position: fixed;left: 50%; z-index:-2;"> 
-	<img src='/kotme/www/images/for_game/around.gif' />
+	<img src='/images/for_game/around.gif' />
 </div>
 
 <?php $this->endWidget(); ?>

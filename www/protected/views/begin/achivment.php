@@ -5,7 +5,7 @@
    justify-content: center;
     }
 	.paper {
-        		background-image: url("/kotme/www/images/for_game/paper.png");
+        		background-image: url("/images/for_game/paper.png");
         		background-size: contain;
         		background-repeat: no-repeat;
   			width:701px;
@@ -62,7 +62,7 @@
           	}
           
           	#nope{
-				background-image: url("/kotme/www/images/for_game/question.png");
+				background-image: url("/images/for_game/question.png");
           	}
           
     		#btn { 
@@ -106,14 +106,14 @@
 							$out.='<div onclick="showMore('.$ach['id'].')" class="level" 
 							'.$idd.' title="'.$ach['name'].'">
 							'.(($model->My_Ach($ach['id'])==0)?'<img style="width: 70%;
-							padding: 0 15%;" src="/kotme/www/images/for_game/question.png"/>':'').'</div>';
+							padding: 0 15%;" src="/images/for_game/question.png"/>':'').'</div>';
 						}
 					?>
       <div class="flex">
     	<div class="paper"><bR><bR><bR><bR><bR><bR>
         	<h1>Ваши достижения: <?php echo $cou."/".count($m);  ?></h1>
         	<div class="cont">
-          		<img style="width: 40%;" src="/kotme/www/images/for_game/dance_2.gif">
+          		<img style="width: 40%;" src="/images/for_game/dance_2.gif">
           		<div class="achiev">
 					<?php echo $out;?>
           			
@@ -121,7 +121,7 @@
 
           		</div>
       		</div>
-      		<div id="btn"><a href="/kotme/www/index.php/begin/cart">Продолжить</a></div>
+      		<div id="btn"><a href="/index.php/begin/cart">Продолжить</a></div>
         </div>
 	   </div>
 <footer style="display:none;" id="foo">

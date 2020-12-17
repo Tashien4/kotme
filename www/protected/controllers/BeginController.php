@@ -131,7 +131,7 @@ class BeginController extends Controller {
     public function actionCart() {
         $model = Begin::model();
         if (isset($_POST['next'])) {
-            $this->redirect('/kotme/www/index.php/begin/lessons?id=' . (Yii::app()->user->isProgressChar() + 1));
+            $this->redirect('/index.php/begin/lessons?id=' . (Yii::app()->user->isProgressChar() + 1));
         }
         $this->render('cart', array('model' => $model));
     }

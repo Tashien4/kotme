@@ -3,7 +3,7 @@
     body {
         font-size:20px;
         background-size: cover;
-        background-image: url('/kotme/www/images/for_game/b_3.png');
+        background-image: url('/images/for_game/b_3.png');
     }
 
     input:focus::-webkit-input-placeholder { color:transparent; }
@@ -17,7 +17,7 @@
     }
 
     .menu-container {
-        background-image: url("/kotme/www/images/for_game/menu.png");
+        background-image: url("/images/for_game/menu.png");
         background-size: contain;
         background-repeat: no-repeat;
         padding: 50px;
@@ -39,7 +39,7 @@
         font-weight: bold;
         z-index: 2;
         -webkit-text-stroke: 3px #e7a321;
-        background-image: url(/kotme/www/images/for_game/wood.jpg);
+        background-image: url(/images/for_game/wood.jpg);
         color: yellow;
         font-size: 60px;
     }
@@ -116,19 +116,19 @@
          top: 70%;
          left: 60%;
          "> 
-        <img src='/kotme/www/images/for_game/crab_hello.gif' width=80%/>
+        <img src='/images/for_game/crab_hello.gif' width=80%/>
     </div>
     <div style="position: fixed;
          left: 0px;
          width: 30%;
          top: 70%;"> 
-        <img src='/kotme/www/images/for_game/crab_idle.gif' width=80%/>
+        <img src='/images/for_game/crab_idle.gif' width=80%/>
     </div>
     <div style="position: fixed;
          left: 0px;
          width: 30%;
          top: 70%;"> 
-        <img src='/kotme/www/images/for_game/angry.gif' width=80%/>
+        <img src='/images/for_game/angry.gif' width=80%/>
     </div>
 
 

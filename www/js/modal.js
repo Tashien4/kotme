@@ -28,7 +28,7 @@ $modal = function (options) {
             modalFooterHTML = '';
 
         elemModal.classList.add('modal');
-        var inContent="<img src='/kotme/www/images/for_game/dance.gif'/><br><a class='btn' id='nextstep' href='cart'>Далее</a>";
+        var inContent="<img src='/images/for_game/dance.gif'/><br><a class='btn' id='nextstep' href='cart'>Далее</a>";
         modalHTML = modalTemplate.replace('{{title}}', options.title || 'Отличная работа!');
         modalHTML = modalHTML.replace('{{content}}', options.content || inContent);
         if (options.footerButtons) {
