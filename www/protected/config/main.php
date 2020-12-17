@@ -50,28 +50,16 @@ return array(
                 '<controller:\w+>/<action:\w+>' => '<controller>/<action>',
             ),
         ),
-        
+//        heroku
         'db' => array(
-            'connectionString' => 'pgsql:host=localhost;dbname=kotme',
+            'connectionString' => $connectionString,
             'emulatePrepare' => true,
-            'username' => 'q',
-            'password' => 'asdfzxcv',
             'charset' => 'utf8',
             // включаем профайлер
             'enableProfiling' => true,
             // показываем значения параметров
             'enableParamLogging' => true,
         ),
-//        heroku
-//        'db' => array(
-//            'connectionString' => $connectionString,
-//            'emulatePrepare' => true,
-//            'charset' => 'utf8',
-//            // включаем профайлер
-//            'enableProfiling' => true,
-//            // показываем значения параметров
-//            'enableParamLogging' => true,
-//        ),
 //        MySQL ====
 //        'db' => array(
 //            'connectionString' => 'mysql:host=localhost;dbname=kotme',
