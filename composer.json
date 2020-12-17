@@ -1,5 +1,5 @@
 {
   "require": {
-    "yiisoft/yii": "1.1.10"
+    "yiisoft/yii": "^1.1"
   }
 }
