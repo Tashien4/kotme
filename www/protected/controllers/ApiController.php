@@ -27,11 +27,87 @@ class ApiController extends Controller {
         $exercise = $_POST["exercise"];
         $code = $_POST["code"];
         
-        if ($exercise > Yii::app()->user->isProgressChar() + 1) {
+        if ($exercise > $user->progerss + 1) {
             $this->_sendResponse(403, 'Задание не открыто');
         }
         
         echo Begin::model()->checkExercise($exercise, $code, $user->id);
+    }
+    
+    public function actionProgress() {
+        $user = $this->_checkAuth();
+        
+        $sql = Yii::app()->db->createCommand("
+        SELECT *
+        FROM user_achivment
+        where user_id=" . $user->id);
+        $rows = $sql->query();
+        
+        $achievements = array();
+        foreach ($rows as $row) {
+            array_push($achievements, $row["achiv_id"]);
+            }
+        
+        echo json_encode(
+                array(
+                    'progress' => $user->progerss,
+                    'achievements' => $achievements
+                    )
+                );
+    }
+    
+    public function actionCached_code() {
+        $user = $this->_checkAuth();
+        
+        $exercise = $_POST["exercise"];
+        
+        $sql = Yii::app()->db->createCommand("
+        SELECT *
+        FROM user_code
+        where user_id=" . $user->id . " and task=" . $exercise);
+        $row = $sql->queryRow();
+        
+        if (!empty($row)) {
+            echo $row["code"];
+        } else {
+            echo ""; // TODO возвращать изначальный код
+        }
+    }
+    
+    public function actionSync_all() {
+        $user = $this->_checkAuth();
+        
+        $sql = Yii::app()->db->createCommand("
+        SELECT *
+        FROM user_code
+        where user_id=" . $user->id);
+        $codeRows = $sql->query();
+        
+        $codeJson = array();
+        $i = 0;
+        foreach ($codeRows as $row) {
+            $codeJson[$i] = $row["code"];
+            $i++;
+        }
+        
+        $sql2 = Yii::app()->db->createCommand("
+        SELECT *
+        FROM user_achivment
+        where user_id=" . $user->id);
+        $achivRows = $sql2->query();
+        
+        $achivJson = array();
+        foreach ($achivRows as $row) {
+            array_push($achivJson, $row["achiv_id"]);
+        }
+        
+        echo json_encode(
+                array(
+                    "progress" => $user->progerss,
+                    "achievements" => $achivJson,
+                    "code" => $codeJson
+                )
+                );
     }
     
     public function actionCheck_Auth() {
