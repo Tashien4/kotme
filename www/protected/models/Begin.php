@@ -58,7 +58,7 @@ class Begin extends Activerecordlog {
         $id = $id + 1;
         $command = Yii::app()->db->createCommand("
 			SELECT text
-			FROM `character_replics`
+			FROM character_replics
 			WHERE id=" . $id);
         $urecords = $command->queryRow();
         return ($urecords['text']);
@@ -134,12 +134,12 @@ class Begin extends Activerecordlog {
     public function nextStep($exercise, $id) {
         $this->giveMeAchivment($exercise, $id);
         $step1 = Yii::app()->db->createCommand("
-			SELECT if((progerss+1)>" . $exercise . ",1,0) as stat
+			SELECT *
 			FROM users
-			WHERE id=" . $id);
+			WHERE id=" . $id . " and (progerss+1 > " . $exercise . ")");
         $s1 = $step1->queryRow();
 
-        if ($s1['stat'] == 0) {
+        if (empty($s1)) {
             $step2 = Yii::app()->db->createCommand("
 			update users
 			set character_rep=character_rep+1,progerss=progerss+1
