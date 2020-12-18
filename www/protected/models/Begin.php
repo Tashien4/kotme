@@ -113,7 +113,10 @@ class Begin extends Activerecordlog {
         );
 
         $context = stream_context_create($options);
-        $result = file_get_contents('https://kotme-script.herokuapp.com/', false, $context);
+        
+        // если есть переменная окружения DATABASE_URL, значит это heroku, иначе локальный адрес
+        $scriptsServer = getenv('DATABASE_URL') ? 'https://kotme-script.herokuapp.com/' : "http://127.0.0.1:8888/";
+        $result = file_get_contents($scriptsServer, false, $context);
         
         $resultJson = json_decode($result);
 
@@ -168,10 +171,12 @@ class Begin extends Activerecordlog {
         $row = $sql->queryRow();
 
         if ($row == false) {
-            $ss = Yii::app()->db->createCommand("
-                insert user_achivment(user_id,achiv_id,date)
-                values(" . $id . "," . $nom . ",'" . date('Y-m-d H:i:s') . "')");
-            $ss->execute();
+            $ss = Yii::app()->db->createCommand();
+            $ss->insert("user_achivment", array(
+                'user_id' => $id,
+                'achiv_id' => $nom,
+                "date" => date('Y-m-d H:i:s')
+            ));
         }
     }
 
@@ -184,6 +189,21 @@ class Begin extends Activerecordlog {
         ");
         $urecords = $command->queryAll();
         return $urecords;
+    }
+    
+    public function getAchievements($user_id) {
+        $sql2 = Yii::app()->db->createCommand("
+        SELECT *
+        FROM user_achivment
+        where user_id=" . $user_id);
+        $achivRows = $sql2->query();
+        
+        $achivJson = array();
+        foreach ($achivRows as $row) {
+            array_push($achivJson, $row["achiv_id"]);
+        }
+        
+        return $achivJson;
     }
 
 //---------------------------------------

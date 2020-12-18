@@ -35,7 +35,7 @@ public $lastinsertedid;
 	{
 		parent::afterSave();
 		if ($this->needfillnew) {
-			$this->lastinsertedid=Yii::app()->db->getLastInsertID(); 
+			$this->lastinsertedid=Yii::app()->db->getLastInsertID("user_seq"); 
 			Log_edit::model()->replnewid($this->lastinsertedid);
 			$this->needfillnew=0;
 		}
