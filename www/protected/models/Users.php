@@ -19,6 +19,9 @@ class Users extends Activerecordlog
 	}
 
 //---------------------------------------
+public function primaryKey() {
+	return 'id';
+}
 //---------------------------------------
             public static function model($className=__CLASS__)
             {

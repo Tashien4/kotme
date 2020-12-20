@@ -10,6 +10,7 @@
     position: absolute;
     left: 50%;
     top: 47%;
+	z-index: -2;
     text-align: center;
     transform: translate(-50%, -50%);	
     			}
@@ -122,7 +123,7 @@ footer{  display:flex;
 	width:50px;}
     </style>
 <?php $form=$this->beginWidget('CActiveForm');
-$pr=Yii::app()->user->isProgress()?>
+$pr=Yii::app()->user->isProgress();?>
 <div class="cart">
 <?php
   for($i=1;$i<11;$i++)

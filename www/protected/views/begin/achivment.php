@@ -107,7 +107,7 @@ foreach ($m as $ach) {
     $isMy = in_array($ach["id"], $my);
     $idd = ($isMy ? ' id="done" ' : '');
     $cou += ($isMy ? 1 : 0);
-    $out .= '<div onclick="showMore(' . $ach['id'] . ')" class="level" 
+    $out .= '<div onclick="showMore('.$ach['id'].')" class="level" 
 							' . $idd . ' title="' . $ach['name'] . '">
 							' . (!$isMy ? '<img style="width: 70%;
 							padding: 0 15%;" src="/images/for_game/question.png"/>' : '') . '</div>';
