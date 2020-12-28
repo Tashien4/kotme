@@ -23,7 +23,8 @@ $(document).ready(function () {
             }),
             success: (function (data, textStatus, jqXHR) {
                 var json = JSON.parse(data);
-                $("#status").text(json["message"]);
+                
+                $("#status").html(json["message"].replace(/(\r\n|\n|\r)/g,"<br />"));
                 console.log(json["console"])
             }),
             error: (function (jqXHR, textStatus, errorThrown) {
