@@ -1,4 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -27,9 +27,10 @@
 		<div id="logo"><?php echo CHtml::encode(Yii::app()->name); ?><br><Br></div>
 	</div-->
 	<div id="mainmenu">
-	<div id="nav-menu"><a href="<?php echo Yii::app()->baseUrl;?>/index.php/begin/step0">Меню</a></div>
+	<div id="nav-menu"><!--a href="<?php echo Yii::app()->baseUrl;?>/index.php/begin/step0">Меню</a-->
+	<a href="<?php echo Yii::app()->baseUrl;?>/index.php/begin/step0">Меню</a></div>
 			<div id="slider-range-max" title="<?php echo Yii::app()->user->isProgress();?>/10">
-				<table>
+				<table style="width: 50%;">
 				<tr><?php for($i=1;$i<11;$i++)
 								echo '<td style="background:'.
 								(($i<=Yii::app()->user->isProgress())?'#D9DD22':'#e6e6e6').'">&#8195;</td>';
