@@ -125,9 +125,7 @@
         <img src='/images/for_game/crab_idle.gif' width=80%/>
     </div>
     <div style="position: fixed;
-         left: 0px;
-         width: 30%;
-         top: 70%;"> 
+         left: 70%;top:25%"> 
         <img src='/images/for_game/angry.gif' width=80%/>
     </div>
 
