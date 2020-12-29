@@ -20,7 +20,7 @@
 
     .menu-container {
         background-image: url("/images/for_game/panel.png");
-        background-size: contain;
+        background-size: 100% 100%;
         background-repeat: no-repeat;
         width: min-content;
         padding: 50px 0px;
