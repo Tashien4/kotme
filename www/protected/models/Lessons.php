@@ -2,7 +2,6 @@
 class Lessons extends Activerecordlog
 {
 
-   
 
 //---------------------------------------
             public static function model($className=__CLASS__)
